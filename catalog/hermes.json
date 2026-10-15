@@ -1,0 +1,1053 @@
+{
+  "revision": "56a41715dc3b8bf6f50a740ff9416c4036ef4259",
+  "scope": "Named tools in installed core registry registrations and literal TOOLSETS entries; dynamic MCP/provider tools are runtime-dependent.",
+  "tools": [
+    {
+      "name": "bfl_flux3_get_result",
+      "source": "tools/flux3_video_tool.py",
+      "line": 1229,
+      "schema": "GET_RESULT_SCHEMA",
+      "sha256": "2855990395da1a4b6f6a324a7db57b71d70345c1cd8885fd7b5a2e92479a272e",
+      "toolsets": [
+        "bfl",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "bfl_flux3_image_to_video",
+      "source": "tools/flux3_video_tool.py",
+      "line": 1196,
+      "schema": "IMAGE_TO_VIDEO_SCHEMA",
+      "sha256": "2855990395da1a4b6f6a324a7db57b71d70345c1cd8885fd7b5a2e92479a272e",
+      "toolsets": [
+        "bfl",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "bfl_flux3_keyframes_to_video",
+      "source": "tools/flux3_video_tool.py",
+      "line": 1207,
+      "schema": "KEYFRAMES_TO_VIDEO_SCHEMA",
+      "sha256": "2855990395da1a4b6f6a324a7db57b71d70345c1cd8885fd7b5a2e92479a272e",
+      "toolsets": [
+        "bfl",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "bfl_flux3_prompting_guide",
+      "source": "tools/flux3_video_tool.py",
+      "line": 1240,
+      "schema": "PROMPTING_GUIDE_SCHEMA",
+      "sha256": "2855990395da1a4b6f6a324a7db57b71d70345c1cd8885fd7b5a2e92479a272e",
+      "toolsets": [
+        "bfl",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "bfl_flux3_text_to_video",
+      "source": "tools/flux3_video_tool.py",
+      "line": 1185,
+      "schema": "TEXT_TO_VIDEO_SCHEMA",
+      "sha256": "2855990395da1a4b6f6a324a7db57b71d70345c1cd8885fd7b5a2e92479a272e",
+      "toolsets": [
+        "bfl",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "bfl_flux3_video_continuation",
+      "source": "tools/flux3_video_tool.py",
+      "line": 1218,
+      "schema": "VIDEO_CONTINUATION_SCHEMA",
+      "sha256": "2855990395da1a4b6f6a324a7db57b71d70345c1cd8885fd7b5a2e92479a272e",
+      "toolsets": [
+        "bfl",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "browser_back",
+      "source": "tools/browser_tool.py",
+      "line": 5343,
+      "schema": "_BROWSER_SCHEMA_MAP['browser_back']",
+      "sha256": "4969b4e054a23df72ffca8dbfc2ffe1659ba8cb3922a42cc2da4f4b44d9c04a3",
+      "toolsets": [
+        "browser",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "browser_cdp",
+      "source": "tools/browser_cdp_tool.py",
+      "line": 670,
+      "schema": "BROWSER_CDP_SCHEMA",
+      "sha256": "d0f9f15cbddb2c0aef833dcf58edbb16db508e3c053efaee2f0fc38305c89c15",
+      "toolsets": [
+        "browser",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "browser_click",
+      "source": "tools/browser_tool.py",
+      "line": 5319,
+      "schema": "_BROWSER_SCHEMA_MAP['browser_click']",
+      "sha256": "4969b4e054a23df72ffca8dbfc2ffe1659ba8cb3922a42cc2da4f4b44d9c04a3",
+      "toolsets": [
+        "browser",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "browser_console",
+      "source": "tools/browser_tool.py",
+      "line": 5376,
+      "schema": "_BROWSER_SCHEMA_MAP['browser_console']",
+      "sha256": "4969b4e054a23df72ffca8dbfc2ffe1659ba8cb3922a42cc2da4f4b44d9c04a3",
+      "toolsets": [
+        "browser",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "browser_dialog",
+      "source": "tools/browser_dialog_tool.py",
+      "line": 136,
+      "schema": "BROWSER_DIALOG_SCHEMA",
+      "sha256": "edc0e12fea0b84ef3a4dba6a0104622417013a2e1c840754f7cf7957ece7f66a",
+      "toolsets": [
+        "browser",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "browser_exec",
+      "source": "tools/browser_use_cli.py",
+      "line": 704,
+      "schema": "BROWSER_EXEC_SCHEMA",
+      "sha256": "32fce06f7073d9b981df58efe30f4460610f93996c1304d74797f7ca7bddd7ba",
+      "toolsets": [
+        "browser",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "browser_get_images",
+      "source": "tools/browser_tool.py",
+      "line": 5360,
+      "schema": "_BROWSER_SCHEMA_MAP['browser_get_images']",
+      "sha256": "4969b4e054a23df72ffca8dbfc2ffe1659ba8cb3922a42cc2da4f4b44d9c04a3",
+      "toolsets": [
+        "browser",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "browser_navigate",
+      "source": "tools/browser_tool.py",
+      "line": 5302,
+      "schema": "_BROWSER_SCHEMA_MAP['browser_navigate']",
+      "sha256": "4969b4e054a23df72ffca8dbfc2ffe1659ba8cb3922a42cc2da4f4b44d9c04a3",
+      "toolsets": [
+        "browser",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "browser_press",
+      "source": "tools/browser_tool.py",
+      "line": 5351,
+      "schema": "_BROWSER_SCHEMA_MAP['browser_press']",
+      "sha256": "4969b4e054a23df72ffca8dbfc2ffe1659ba8cb3922a42cc2da4f4b44d9c04a3",
+      "toolsets": [
+        "browser",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "browser_scroll",
+      "source": "tools/browser_tool.py",
+      "line": 5335,
+      "schema": "_BROWSER_SCHEMA_MAP['browser_scroll']",
+      "sha256": "4969b4e054a23df72ffca8dbfc2ffe1659ba8cb3922a42cc2da4f4b44d9c04a3",
+      "toolsets": [
+        "browser",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "browser_snapshot",
+      "source": "tools/browser_tool.py",
+      "line": 5310,
+      "schema": "_BROWSER_SCHEMA_MAP['browser_snapshot']",
+      "sha256": "4969b4e054a23df72ffca8dbfc2ffe1659ba8cb3922a42cc2da4f4b44d9c04a3",
+      "toolsets": [
+        "browser",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "browser_type",
+      "source": "tools/browser_tool.py",
+      "line": 5327,
+      "schema": "_BROWSER_SCHEMA_MAP['browser_type']",
+      "sha256": "4969b4e054a23df72ffca8dbfc2ffe1659ba8cb3922a42cc2da4f4b44d9c04a3",
+      "toolsets": [
+        "browser",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "browser_vision",
+      "source": "tools/browser_tool.py",
+      "line": 5368,
+      "schema": "_BROWSER_SCHEMA_MAP['browser_vision']",
+      "sha256": "4969b4e054a23df72ffca8dbfc2ffe1659ba8cb3922a42cc2da4f4b44d9c04a3",
+      "toolsets": [
+        "browser",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "clarify",
+      "source": "tools/clarify_tool.py",
+      "line": 308,
+      "schema": "CLARIFY_SCHEMA",
+      "sha256": "bbd37f211baa1a1fd1e79cf7ce9a553cbdc92459f5436d37ed04ea8d232dbcd4",
+      "toolsets": [
+        "clarify",
+        "coding"
+      ]
+    },
+    {
+      "name": "close_terminal",
+      "source": "tools/close_terminal_tool.py",
+      "line": 56,
+      "schema": "CLOSE_TERMINAL_SCHEMA",
+      "sha256": "106215e0a062b5d9a3e093d90cd58e75cc2121a9043a43763ddf6e241f4bcbb1",
+      "toolsets": [
+        "desktop_ui"
+      ]
+    },
+    {
+      "name": "computer_use",
+      "source": "tools/computer_use_tool.py",
+      "line": 20,
+      "schema": "COMPUTER_USE_SCHEMA",
+      "sha256": "7132cc9ad6daf8b320f6294294f3e00694ad1141f1d5ef0548ba34fa5be119f2",
+      "toolsets": [
+        "computer_use"
+      ]
+    },
+    {
+      "name": "cronjob",
+      "source": "tools/cronjob_tools.py",
+      "line": 1654,
+      "schema": "CRONJOB_SCHEMA",
+      "sha256": "b42b4ab510f3f3fba37d3a045c60071ea398fffeb9ed3904f9674a589606aa82",
+      "toolsets": [
+        "cronjob",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "delegate_task",
+      "source": "tools/delegate_tool.py",
+      "line": 4658,
+      "schema": "DELEGATE_TASK_SCHEMA",
+      "sha256": "eff2c5ad3609a8572ad8cd133a0f799a1b83cb23f4cb01fc232ef577428011a5",
+      "toolsets": [
+        "delegation",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "discord",
+      "source": "tools/discord_tool.py",
+      "line": 1100,
+      "schema": "_STATIC_CORE_SCHEMA",
+      "sha256": "09696d4affbf10134acbaf1fd8b4db989521b23e4fdf724e2be4c562cec67ce3",
+      "toolsets": [
+        "discord"
+      ]
+    },
+    {
+      "name": "discord_admin",
+      "source": "tools/discord_tool.py",
+      "line": 1109,
+      "schema": "_STATIC_ADMIN_SCHEMA",
+      "sha256": "09696d4affbf10134acbaf1fd8b4db989521b23e4fdf724e2be4c562cec67ce3",
+      "toolsets": [
+        "discord_admin"
+      ]
+    },
+    {
+      "name": "execute_code",
+      "source": "tools/code_execution_tool.py",
+      "line": 2197,
+      "schema": "EXECUTE_CODE_SCHEMA",
+      "sha256": "928d7bc88696ee5ee2ca84977ad4909f357aac376fd9312457adf13fe0eab88b",
+      "toolsets": [
+        "code_execution",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "feishu_doc_read",
+      "source": "tools/feishu_doc_tool.py",
+      "line": 128,
+      "schema": "FEISHU_DOC_READ_SCHEMA",
+      "sha256": "40ee7eee87110f65b01d2438d623dfb80d84f37994d162cd6d9ed8c0165237b8",
+      "toolsets": [
+        "feishu_doc"
+      ]
+    },
+    {
+      "name": "feishu_drive_add_comment",
+      "source": "tools/feishu_drive_tool.py",
+      "line": 421,
+      "schema": "FEISHU_DRIVE_ADD_COMMENT_SCHEMA",
+      "sha256": "1d6bc653dff7d2ead65e3c4268b2dbc93b5caf57dcec1f5b05d7f772e488a94b",
+      "toolsets": [
+        "feishu_drive"
+      ]
+    },
+    {
+      "name": "feishu_drive_list_comment_replies",
+      "source": "tools/feishu_drive_tool.py",
+      "line": 397,
+      "schema": "FEISHU_DRIVE_LIST_REPLIES_SCHEMA",
+      "sha256": "1d6bc653dff7d2ead65e3c4268b2dbc93b5caf57dcec1f5b05d7f772e488a94b",
+      "toolsets": [
+        "feishu_drive"
+      ]
+    },
+    {
+      "name": "feishu_drive_list_comments",
+      "source": "tools/feishu_drive_tool.py",
+      "line": 385,
+      "schema": "FEISHU_DRIVE_LIST_COMMENTS_SCHEMA",
+      "sha256": "1d6bc653dff7d2ead65e3c4268b2dbc93b5caf57dcec1f5b05d7f772e488a94b",
+      "toolsets": [
+        "feishu_drive"
+      ]
+    },
+    {
+      "name": "feishu_drive_reply_comment",
+      "source": "tools/feishu_drive_tool.py",
+      "line": 409,
+      "schema": "FEISHU_DRIVE_REPLY_SCHEMA",
+      "sha256": "1d6bc653dff7d2ead65e3c4268b2dbc93b5caf57dcec1f5b05d7f772e488a94b",
+      "toolsets": [
+        "feishu_drive"
+      ]
+    },
+    {
+      "name": "focus_pane",
+      "source": "tools/focus_pane_tool.py",
+      "line": 58,
+      "schema": "FOCUS_PANE_SCHEMA",
+      "sha256": "10d7bd6c181bd3f5e38d95bdfe997b5e706d5b07a911871689fed3fa9264d379",
+      "toolsets": [
+        "desktop_ui"
+      ]
+    },
+    {
+      "name": "ha_call_service",
+      "source": "tools/homeassistant_tool.py",
+      "line": 507,
+      "schema": "HA_CALL_SERVICE_SCHEMA",
+      "sha256": "84d5a4eb69bc88357c45fbc80cf072feaf8716d3b2d96ab5dd8b2f36c80a380b",
+      "toolsets": [
+        "homeassistant",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "ha_get_state",
+      "source": "tools/homeassistant_tool.py",
+      "line": 489,
+      "schema": "HA_GET_STATE_SCHEMA",
+      "sha256": "84d5a4eb69bc88357c45fbc80cf072feaf8716d3b2d96ab5dd8b2f36c80a380b",
+      "toolsets": [
+        "homeassistant",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "ha_list_entities",
+      "source": "tools/homeassistant_tool.py",
+      "line": 480,
+      "schema": "HA_LIST_ENTITIES_SCHEMA",
+      "sha256": "84d5a4eb69bc88357c45fbc80cf072feaf8716d3b2d96ab5dd8b2f36c80a380b",
+      "toolsets": [
+        "homeassistant",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "ha_list_services",
+      "source": "tools/homeassistant_tool.py",
+      "line": 498,
+      "schema": "HA_LIST_SERVICES_SCHEMA",
+      "sha256": "84d5a4eb69bc88357c45fbc80cf072feaf8716d3b2d96ab5dd8b2f36c80a380b",
+      "toolsets": [
+        "homeassistant",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "image_generate",
+      "source": "tools/image_generation_tool.py",
+      "line": 1983,
+      "schema": "IMAGE_GENERATE_SCHEMA",
+      "sha256": "6dd948eb933867c5f56e7966287100a54969df73468f2b87dcddf95571581d46",
+      "toolsets": [
+        "image_gen",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "kanban_attach",
+      "source": "tools/kanban_tools.py",
+      "line": 2428,
+      "schema": "KANBAN_ATTACH_SCHEMA",
+      "sha256": "6066ca6acdbdc6b48258a2a31df0e4942eca883f076c9f56a10fe78370566260",
+      "toolsets": [
+        "kanban"
+      ]
+    },
+    {
+      "name": "kanban_attach_url",
+      "source": "tools/kanban_tools.py",
+      "line": 2437,
+      "schema": "KANBAN_ATTACH_URL_SCHEMA",
+      "sha256": "6066ca6acdbdc6b48258a2a31df0e4942eca883f076c9f56a10fe78370566260",
+      "toolsets": [
+        "kanban"
+      ]
+    },
+    {
+      "name": "kanban_attachments",
+      "source": "tools/kanban_tools.py",
+      "line": 2446,
+      "schema": "KANBAN_ATTACHMENTS_SCHEMA",
+      "sha256": "6066ca6acdbdc6b48258a2a31df0e4942eca883f076c9f56a10fe78370566260",
+      "toolsets": [
+        "kanban"
+      ]
+    },
+    {
+      "name": "kanban_block",
+      "source": "tools/kanban_tools.py",
+      "line": 2383,
+      "schema": "KANBAN_BLOCK_SCHEMA",
+      "sha256": "6066ca6acdbdc6b48258a2a31df0e4942eca883f076c9f56a10fe78370566260",
+      "toolsets": [
+        "kanban"
+      ]
+    },
+    {
+      "name": "kanban_comment",
+      "source": "tools/kanban_tools.py",
+      "line": 2419,
+      "schema": "KANBAN_COMMENT_SCHEMA",
+      "sha256": "6066ca6acdbdc6b48258a2a31df0e4942eca883f076c9f56a10fe78370566260",
+      "toolsets": [
+        "kanban"
+      ]
+    },
+    {
+      "name": "kanban_complete",
+      "source": "tools/kanban_tools.py",
+      "line": 2374,
+      "schema": "KANBAN_COMPLETE_SCHEMA",
+      "sha256": "6066ca6acdbdc6b48258a2a31df0e4942eca883f076c9f56a10fe78370566260",
+      "toolsets": [
+        "kanban"
+      ]
+    },
+    {
+      "name": "kanban_create",
+      "source": "tools/kanban_tools.py",
+      "line": 2455,
+      "schema": "KANBAN_CREATE_SCHEMA",
+      "sha256": "6066ca6acdbdc6b48258a2a31df0e4942eca883f076c9f56a10fe78370566260",
+      "toolsets": [
+        "kanban"
+      ]
+    },
+    {
+      "name": "kanban_heartbeat",
+      "source": "tools/kanban_tools.py",
+      "line": 2410,
+      "schema": "KANBAN_HEARTBEAT_SCHEMA",
+      "sha256": "6066ca6acdbdc6b48258a2a31df0e4942eca883f076c9f56a10fe78370566260",
+      "toolsets": [
+        "kanban"
+      ]
+    },
+    {
+      "name": "kanban_link",
+      "source": "tools/kanban_tools.py",
+      "line": 2473,
+      "schema": "KANBAN_LINK_SCHEMA",
+      "sha256": "6066ca6acdbdc6b48258a2a31df0e4942eca883f076c9f56a10fe78370566260",
+      "toolsets": [
+        "kanban"
+      ]
+    },
+    {
+      "name": "kanban_list",
+      "source": "tools/kanban_tools.py",
+      "line": 2365,
+      "schema": "KANBAN_LIST_SCHEMA",
+      "sha256": "6066ca6acdbdc6b48258a2a31df0e4942eca883f076c9f56a10fe78370566260",
+      "toolsets": [
+        "kanban"
+      ]
+    },
+    {
+      "name": "kanban_request_changes",
+      "source": "tools/kanban_tools.py",
+      "line": 2401,
+      "schema": "KANBAN_REQUEST_CHANGES_SCHEMA",
+      "sha256": "6066ca6acdbdc6b48258a2a31df0e4942eca883f076c9f56a10fe78370566260",
+      "toolsets": [
+        "kanban"
+      ]
+    },
+    {
+      "name": "kanban_request_review",
+      "source": "tools/kanban_tools.py",
+      "line": 2392,
+      "schema": "KANBAN_REQUEST_REVIEW_SCHEMA",
+      "sha256": "6066ca6acdbdc6b48258a2a31df0e4942eca883f076c9f56a10fe78370566260",
+      "toolsets": [
+        "kanban"
+      ]
+    },
+    {
+      "name": "kanban_show",
+      "source": "tools/kanban_tools.py",
+      "line": 2356,
+      "schema": "KANBAN_SHOW_SCHEMA",
+      "sha256": "6066ca6acdbdc6b48258a2a31df0e4942eca883f076c9f56a10fe78370566260",
+      "toolsets": [
+        "kanban"
+      ]
+    },
+    {
+      "name": "kanban_unblock",
+      "source": "tools/kanban_tools.py",
+      "line": 2464,
+      "schema": "KANBAN_UNBLOCK_SCHEMA",
+      "sha256": "6066ca6acdbdc6b48258a2a31df0e4942eca883f076c9f56a10fe78370566260",
+      "toolsets": [
+        "kanban"
+      ]
+    },
+    {
+      "name": "memory",
+      "source": "tools/memory_tool.py",
+      "line": 1231,
+      "schema": "MEMORY_SCHEMA",
+      "sha256": "c57a3450f2cbf00ef19e8805866d01f74e875a03713b873e7dba05e503abf79a",
+      "toolsets": [
+        "memory",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "open_preview",
+      "source": "tools/open_preview_tool.py",
+      "line": 86,
+      "schema": "OPEN_PREVIEW_SCHEMA",
+      "sha256": "2da3fea07ac7f9e9f48f2332c7dc21a9985a13b96eef387867b7dae442a4874f",
+      "toolsets": [
+        "desktop_ui"
+      ]
+    },
+    {
+      "name": "patch",
+      "source": "tools/file_tools.py",
+      "line": 2748,
+      "schema": "PATCH_SCHEMA",
+      "sha256": "e84ef68b26b0268e0635ab1c39f56ffd2092340d8f836621655e42df559770bf",
+      "toolsets": [
+        "file",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "process",
+      "source": "tools/process_registry.py",
+      "line": 2999,
+      "schema": "PROCESS_SCHEMA",
+      "sha256": "328798cee61e85f0925092919a39c724e1ba33cb551956ded623a10b50791597",
+      "toolsets": [
+        "terminal",
+        "debugging",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "project_create",
+      "source": "tools/project_tools.py",
+      "line": 145,
+      "schema": "{'name': 'project_create', 'description': \"Create a desktop Project (a named workspace) and switch this chat into it. Pass `path` to anchor it to a repo/folder \u2014 this chat's workspace moves there and the sidebar follows. Use when starting work in a new repo/folder; this is the intentional way to move the session, not `cd`.\", 'parameters': {'type': 'object', 'properties': {'name': {'type': 'string', 'description': \"Human name, e.g. 'Aurora Demo'\"}, 'path': {'type': 'string', 'description': 'Primary repo/folder to anchor the project to'}}, 'required': ['name']}}",
+      "sha256": "7ba9238ade4a325df3ec02c03f978e2c9ffaa6d61f118427bbae43f9c03eeb86",
+      "toolsets": [
+        "project"
+      ]
+    },
+    {
+      "name": "project_list",
+      "source": "tools/project_tools.py",
+      "line": 134,
+      "schema": "{'name': 'project_list', 'description': 'List the desktop Projects (named workspaces) and which one is active.', 'parameters': {'type': 'object', 'properties': {}}}",
+      "sha256": "7ba9238ade4a325df3ec02c03f978e2c9ffaa6d61f118427bbae43f9c03eeb86",
+      "toolsets": [
+        "project"
+      ]
+    },
+    {
+      "name": "project_switch",
+      "source": "tools/project_tools.py",
+      "line": 170,
+      "schema": "{'name': 'project_switch', 'description': \"Switch this chat into an existing desktop Project (by name, slug, or id). Moves the session's workspace to the project's primary folder and the sidebar follows. The intentional way to move between projects, not `cd`.\", 'parameters': {'type': 'object', 'properties': {'project': {'type': 'string', 'description': 'Project name, slug, or id'}}, 'required': ['project']}}",
+      "sha256": "7ba9238ade4a325df3ec02c03f978e2c9ffaa6d61f118427bbae43f9c03eeb86",
+      "toolsets": [
+        "project"
+      ]
+    },
+    {
+      "name": "react_to_message",
+      "source": "tools/react_to_message_tool.py",
+      "line": 155,
+      "schema": "REACT_TO_MESSAGE_SCHEMA",
+      "sha256": "77a9bac0b52f286f4ea4171c48a934ecaab16ee60c3d2d10b72bb1877851e6ad",
+      "toolsets": [
+        "desktop_ui"
+      ]
+    },
+    {
+      "name": "read_file",
+      "source": "tools/file_tools.py",
+      "line": 2746,
+      "schema": "READ_FILE_SCHEMA",
+      "sha256": "e84ef68b26b0268e0635ab1c39f56ffd2092340d8f836621655e42df559770bf",
+      "toolsets": [
+        "file",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "read_preview",
+      "source": "tools/read_preview_tool.py",
+      "line": 84,
+      "schema": "READ_PREVIEW_SCHEMA",
+      "sha256": "fef02b98472c0833f47fca78226192f098a8434fe404260c4fb30fa9b36dac23",
+      "toolsets": [
+        "desktop_ui"
+      ]
+    },
+    {
+      "name": "read_terminal",
+      "source": "tools/read_terminal_tool.py",
+      "line": 79,
+      "schema": "READ_TERMINAL_SCHEMA",
+      "sha256": "d8a8ab0a9020935b4bb0c0d22a0e425f8a53e0636c49e464b3240ad7a4edbf0e",
+      "toolsets": [
+        "desktop_ui"
+      ]
+    },
+    {
+      "name": "read_window_below",
+      "source": "tools/read_window_tool.py",
+      "line": 65,
+      "schema": "READ_WINDOW_BELOW_SCHEMA",
+      "sha256": "009804a53599a8790422f7ded70f853a3128f10816e65b638da29a4ca3d48247",
+      "toolsets": [
+        "desktop_ui"
+      ]
+    },
+    {
+      "name": "search_files",
+      "source": "tools/file_tools.py",
+      "line": 2749,
+      "schema": "SEARCH_FILES_SCHEMA",
+      "sha256": "e84ef68b26b0268e0635ab1c39f56ffd2092340d8f836621655e42df559770bf",
+      "toolsets": [
+        "file",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "session_search",
+      "source": "tools/session_search_tool.py",
+      "line": 1143,
+      "schema": "SESSION_SEARCH_SCHEMA",
+      "sha256": "a06eb0f51e7dcc08d00710af6f99915713b631284c87ec879c7434049429c4ec",
+      "toolsets": [
+        "session_search",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "setup_mcp",
+      "source": "tools/setup_mcp_tool.py",
+      "line": 123,
+      "schema": "SETUP_MCP_SCHEMA",
+      "sha256": "add6385343d4d756cfba2dcc5a563423aa28d24ea19463946235ffaa25f49ebe",
+      "toolsets": [
+        "desktop_ui"
+      ]
+    },
+    {
+      "name": "skill_manage",
+      "source": "tools/skill_manager_tool.py",
+      "line": 1792,
+      "schema": "SKILL_MANAGE_SCHEMA",
+      "sha256": "83986046196e998536da30ef96195144b0444abc54ac35e54dc486639bdfccf9",
+      "toolsets": [
+        "skills",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "skill_view",
+      "source": "tools/skills_tool.py",
+      "line": 2086,
+      "schema": "SKILL_VIEW_SCHEMA",
+      "sha256": "7397ebe5299ceb84c257aedad81f2dced4b9d336c74cb2b2467888c7ca891443",
+      "toolsets": [
+        "skills",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "skills_list",
+      "source": "tools/skills_tool.py",
+      "line": 1923,
+      "schema": "SKILLS_LIST_SCHEMA",
+      "sha256": "7397ebe5299ceb84c257aedad81f2dced4b9d336c74cb2b2467888c7ca891443",
+      "toolsets": [
+        "skills",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "spotify_albums",
+      "source": "toolsets.py",
+      "line": 379,
+      "schema": "runtime/plugin registration",
+      "sha256": "5cd813ff981aae2a08ff553a58af3e5eae90e60d02a1f329cc5ca1405cf8f4d5",
+      "toolsets": [
+        "spotify"
+      ]
+    },
+    {
+      "name": "spotify_devices",
+      "source": "toolsets.py",
+      "line": 378,
+      "schema": "runtime/plugin registration",
+      "sha256": "5cd813ff981aae2a08ff553a58af3e5eae90e60d02a1f329cc5ca1405cf8f4d5",
+      "toolsets": [
+        "spotify"
+      ]
+    },
+    {
+      "name": "spotify_library",
+      "source": "toolsets.py",
+      "line": 379,
+      "schema": "runtime/plugin registration",
+      "sha256": "5cd813ff981aae2a08ff553a58af3e5eae90e60d02a1f329cc5ca1405cf8f4d5",
+      "toolsets": [
+        "spotify"
+      ]
+    },
+    {
+      "name": "spotify_playback",
+      "source": "toolsets.py",
+      "line": 378,
+      "schema": "runtime/plugin registration",
+      "sha256": "5cd813ff981aae2a08ff553a58af3e5eae90e60d02a1f329cc5ca1405cf8f4d5",
+      "toolsets": [
+        "spotify"
+      ]
+    },
+    {
+      "name": "spotify_playlists",
+      "source": "toolsets.py",
+      "line": 379,
+      "schema": "runtime/plugin registration",
+      "sha256": "5cd813ff981aae2a08ff553a58af3e5eae90e60d02a1f329cc5ca1405cf8f4d5",
+      "toolsets": [
+        "spotify"
+      ]
+    },
+    {
+      "name": "spotify_queue",
+      "source": "toolsets.py",
+      "line": 378,
+      "schema": "runtime/plugin registration",
+      "sha256": "5cd813ff981aae2a08ff553a58af3e5eae90e60d02a1f329cc5ca1405cf8f4d5",
+      "toolsets": [
+        "spotify"
+      ]
+    },
+    {
+      "name": "spotify_search",
+      "source": "toolsets.py",
+      "line": 378,
+      "schema": "runtime/plugin registration",
+      "sha256": "5cd813ff981aae2a08ff553a58af3e5eae90e60d02a1f329cc5ca1405cf8f4d5",
+      "toolsets": [
+        "spotify"
+      ]
+    },
+    {
+      "name": "terminal",
+      "source": "tools/terminal_tool.py",
+      "line": 3843,
+      "schema": "TERMINAL_SCHEMA",
+      "sha256": "2a6e3260f42e1bb992b167d294544197d8320b28a7e79067e95f7e186f659d19",
+      "toolsets": [
+        "terminal",
+        "debugging",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "text_to_speech",
+      "source": "tools/tts_tool.py",
+      "line": 4490,
+      "schema": "TTS_SCHEMA",
+      "sha256": "2a18a7629460cb1d6899f6c70d29406667b9dba29b688a1ef8d7c12a06379445",
+      "toolsets": [
+        "tts"
+      ]
+    },
+    {
+      "name": "todo",
+      "source": "tools/todo_tool.py",
+      "line": 327,
+      "schema": "TODO_SCHEMA",
+      "sha256": "3acc632b74c6d51f5888b5b6dd4f0aa6fd8659730d990ddc43dd9217e77cddcf",
+      "toolsets": [
+        "todo",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "video_analyze",
+      "source": "tools/vision_tools.py",
+      "line": 2216,
+      "schema": "VIDEO_ANALYZE_SCHEMA",
+      "sha256": "b81b357c095e988565362a5dd1c4d2ae312c16c2e853bb0905380d0878f624d5",
+      "toolsets": [
+        "video"
+      ]
+    },
+    {
+      "name": "video_generate",
+      "source": "tools/video_generation_tool.py",
+      "line": 595,
+      "schema": "VIDEO_GENERATE_SCHEMA",
+      "sha256": "1d41696d0e109120f55d13844240718850defb0f443e3f31ead33e8e62e87d12",
+      "toolsets": [
+        "video_gen"
+      ]
+    },
+    {
+      "name": "vision_analyze",
+      "source": "tools/vision_tools.py",
+      "line": 1798,
+      "schema": "VISION_ANALYZE_SCHEMA",
+      "sha256": "b81b357c095e988565362a5dd1c4d2ae312c16c2e853bb0905380d0878f624d5",
+      "toolsets": [
+        "vision",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "web_extract",
+      "source": "tools/web_tools.py",
+      "line": 1230,
+      "schema": "WEB_EXTRACT_SCHEMA",
+      "sha256": "3409771807eb3a14671afccc8f197781f04f61e4adaf7d9b3404b42c1cdf0879",
+      "toolsets": [
+        "web",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "web_search",
+      "source": "tools/web_tools.py",
+      "line": 1220,
+      "schema": "WEB_SEARCH_SCHEMA",
+      "sha256": "3409771807eb3a14671afccc8f197781f04f61e4adaf7d9b3404b42c1cdf0879",
+      "toolsets": [
+        "web",
+        "search",
+        "browser",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "write_file",
+      "source": "tools/file_tools.py",
+      "line": 2747,
+      "schema": "WRITE_FILE_SCHEMA",
+      "sha256": "e84ef68b26b0268e0635ab1c39f56ffd2092340d8f836621655e42df559770bf",
+      "toolsets": [
+        "file",
+        "coding",
+        "hermes-acp",
+        "hermes-api-server"
+      ]
+    },
+    {
+      "name": "x_search",
+      "source": "tools/x_search_tool.py",
+      "line": 543,
+      "schema": "X_SEARCH_SCHEMA",
+      "sha256": "043ca16aec8be78c33c87ea9c12bc7820e02e435de758008a1d263e17c579cf7",
+      "toolsets": [
+        "x_search"
+      ]
+    },
+    {
+      "name": "xai_video_edit",
+      "source": "tools/xai_video_tools.py",
+      "line": 189,
+      "schema": "XAI_VIDEO_EDIT_SCHEMA",
+      "sha256": "0fba642570e7aa61b31c6be2642ac79d01b7b38bd58a914a22d568275d6963cb",
+      "toolsets": [
+        "video_gen"
+      ]
+    },
+    {
+      "name": "xai_video_extend",
+      "source": "tools/xai_video_tools.py",
+      "line": 200,
+      "schema": "XAI_VIDEO_EXTEND_SCHEMA",
+      "sha256": "0fba642570e7aa61b31c6be2642ac79d01b7b38bd58a914a22d568275d6963cb",
+      "toolsets": [
+        "video_gen"
+      ]
+    },
+    {
+      "name": "yb_query_group_info",
+      "source": "tools/yuanbao_tools.py",
+      "line": 502,
+      "schema": "{'name': 'yb_query_group_info', 'description': \"Query basic info about a group (called '\u6d3e/Pai' in the app), including group name, owner, and member count.\", 'parameters': {'type': 'object', 'properties': {'group_code': {'type': 'string', 'description': 'The unique group identifier (group_code).'}}, 'required': ['group_code']}}",
+      "sha256": "4b8a5005587b690d6a04b9cfdabab88700c4ec669bf1c97602b95efcdf0809c5",
+      "toolsets": [
+        "yuanbao"
+      ]
+    },
+    {
+      "name": "yb_query_group_members",
+      "source": "tools/yuanbao_tools.py",
+      "line": 528,
+      "schema": "{'name': 'yb_query_group_members', 'description': \"Query members of a group (called '\u6d3e/Pai' in the app). Use this tool when you need to @mention someone, find a user by name, list bots (including Yuanbao AI), or list all members. IMPORTANT: You MUST call this tool before @mentioning any user, because you need the exact nickname to construct the @mention format.\", 'parameters': {'type': 'object', 'properties': {'group_code': {'type': 'string', 'description': 'The unique group identifier (group_code).'}, 'action': {'type': 'string', 'enum': ['find', 'list_bots', 'list_all'], 'description': 'find \u2014 search a user by name (use when you need to @mention or look up someone); list_bots \u2014 list bots and Yuanbao AI assistants; list_all \u2014 list all members.'}, 'name': {'type': 'string', 'description': \"User name to search (partial match, case-insensitive). Required for 'find'. Use the name the user mentioned in the conversation.\"}, 'mention': {'type': 'boolean', 'description': 'Set to true when you need to @mention/at someone in your reply. The response will include the exact @mention format to use.'}}, 'required': ['group_code', 'action']}}",
+      "sha256": "4b8a5005587b690d6a04b9cfdabab88700c4ec669bf1c97602b95efcdf0809c5",
+      "toolsets": [
+        "yuanbao"
+      ]
+    },
+    {
+      "name": "yb_search_sticker",
+      "source": "tools/yuanbao_tools.py",
+      "line": 654,
+      "schema": "{'name': 'yb_search_sticker', 'description': 'Search the built-in Yuanbao sticker (TIM face / \u8868\u60c5\u5305) catalogue by keyword. Returns the top matching candidates with sticker_id, name, and description. Use this BEFORE yb_send_sticker to discover the right sticker_id. Sticker = \u8d34\u7eb8 = TIM face \u2014 NOT a message reaction. Prefer sending a sticker over bare Unicode emoji when reacting/expressing emotion.', 'parameters': {'type': 'object', 'properties': {'query': {'type': 'string', 'description': \"Search keyword (Chinese or English, e.g. '666', '\u6bd4\u5fc3', 'cool', '\u5403\u74dc'). Empty string returns the first N stickers.\"}, 'limit': {'type': 'integer', 'description': 'Max number of candidates to return (default 10, max 50).'}}, 'required': []}}",
+      "sha256": "4b8a5005587b690d6a04b9cfdabab88700c4ec669bf1c97602b95efcdf0809c5",
+      "toolsets": [
+        "yuanbao"
+      ]
+    },
+    {
+      "name": "yb_send_dm",
+      "source": "tools/yuanbao_tools.py",
+      "line": 580,
+      "schema": "{'name': 'yb_send_dm', 'description': 'Send a private/direct message (DM) to a user in a group, with optional media files. This tool automatically looks up the user by name in the group member list and sends the message. Use this when someone asks to privately message / \u79c1\u4fe1 / DM a user. Supports text, images, and file attachments. You can also provide user_id directly if already known.', 'parameters': {'type': 'object', 'properties': {'group_code': {'type': 'string', 'description': \"The group where the target user belongs. Extract from chat_id: 'group:328306697' \u2192 '328306697'. Required when user_id is not provided.\"}, 'name': {'type': 'string', 'description': \"Target user's display name (partial match, case-insensitive). Required when user_id is not provided.\"}, 'message': {'type': 'string', 'description': 'The message text to send as a DM. Can be empty if only sending media.'}, 'user_id': {'type': 'string', 'description': \"Target user's account ID. If provided, skips the member lookup. Usually obtained from a previous yb_query_group_members call.\"}, 'media_files': {'type': 'array', 'description': 'Optional list of media files to send along with the DM. Images (.jpg/.png/.gif/.webp/.bmp) are sent as image messages; other files are sent as document attachments.', 'items': {'type': 'object', 'properties': {'path': {'type': 'string', 'description': 'Absolute local file path of the media to send.'}, 'is_voice': {'type': 'boolean', 'description': 'Whether this file is a voice message (default false).'}}, 'required': ['path']}}}, 'required': []}}",
+      "sha256": "4b8a5005587b690d6a04b9cfdabab88700c4ec669bf1c97602b95efcdf0809c5",
+      "toolsets": [
+        "yuanbao"
+      ]
+    },
+    {
+      "name": "yb_send_sticker",
+      "source": "tools/yuanbao_tools.py",
+      "line": 691,
+      "schema": "{'name': 'yb_send_sticker', 'description': \"Send a built-in sticker (TIMFaceElem / \u8d34\u7eb8\u8868\u60c5) to the current Yuanbao chat. Call yb_search_sticker first if you don't know the sticker_id/name. Sticker = \u8d34\u7eb8 = TIM face \u2014 NOT a message reaction. CRITICAL: Whenever the user asks you to send a sticker / \u8d34\u7eb8 / \u8868\u60c5\u5305, you MUST use this tool. DO NOT draw a PNG via execute_code / Pillow / matplotlib and then call send_image_file \u2014 that produces a fake 'sticker' image instead of a real TIM face and is the WRONG path. If no suitable sticker_id is known, call yb_search_sticker first. When the recent thread shows users sending stickers, prefer matching that tone by replying with a sticker instead of (or in addition to) text.\", 'parameters': {'type': 'object', 'properties': {'sticker': {'type': 'string', 'description': \"Sticker name (e.g. '\u516d\u516d\u516d', '\u6bd4\u5fc3', 'ok') or numeric sticker_id (e.g. '278'). Empty string sends a random built-in sticker.\"}, 'chat_id': {'type': 'string', 'description': \"Target chat. Defaults to the current session. Format: 'direct:{account_id}', 'group:{group_code}', or bare account_id.\"}, 'reply_to': {'type': 'string', 'description': 'Optional ref_msg_id to quote-reply (group chat only).'}}, 'required': []}}",
+      "sha256": "4b8a5005587b690d6a04b9cfdabab88700c4ec669bf1c97602b95efcdf0809c5",
+      "toolsets": [
+        "yuanbao"
+      ]
+    }
+  ]
+}
