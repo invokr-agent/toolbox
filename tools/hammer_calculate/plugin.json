@@ -1,0 +1,38 @@
+{
+  "name": "hammer_calculate",
+  "description": "Evaluate bounded arithmetic: + - * / // % and parentheses.",
+  "namespace": "hammer",
+  "example": "{\"name\":\"hammer_calculate\",\"arguments\":{\"expression\":\"(12 + 8) / 5\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "expression": {
+        "type": "string",
+        "description": "Arithmetic expression; no names, calls or powers.",
+        "maxLength": 32000
+      }
+    },
+    "required": [
+      "expression"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": false,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 3,
+    "memory_mb": 128,
+    "output_kb": 32
+  }
+}
