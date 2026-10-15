@@ -1,0 +1,50 @@
+{
+  "name": "hammer_text_patch",
+  "description": "Replace one exact text match and preview a unified diff.",
+  "namespace": "hammer",
+  "example": "{\"name\":\"hammer_text_patch\",\"arguments\":{\"text\":\"hello world\\n\",\"old\":\"world\",\"new\":\"Ada\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "text": {
+        "type": "string",
+        "description": "Original text.",
+        "maxLength": 32000
+      },
+      "old": {
+        "type": "string",
+        "description": "Unique nonempty match.",
+        "maxLength": 32000
+      },
+      "new": {
+        "type": "string",
+        "description": "Replacement; empty deletes.",
+        "maxLength": 32000
+      }
+    },
+    "required": [
+      "text",
+      "old",
+      "new"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": false,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 3,
+    "memory_mb": 128,
+    "output_kb": 32
+  }
+}
