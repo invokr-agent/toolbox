@@ -1,0 +1,53 @@
+# Copy into a network tool; set fixed ORIGIN and AUTH_PREFIX locally. Never import at runtime.
+
+import os
+import stat
+import re
+from urllib.parse import urlencode
+
+
+def token():
+    """Read only this tool's explicitly provisioned, owner-only credential."""
+    path = Path(__file__).with_name('.secrets.json')
+    try:
+        fd = os.open(path, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)
+    except OSError as exc:
+        raise ValueError('configure this tool with an owner-only .secrets.json token') from exc
+    with os.fdopen(fd, 'rb') as stream:
+        info = os.fstat(stream.fileno())
+        if not stat.S_ISREG(info.st_mode) or info.st_mode & 0o077 or info.st_uid != os.getuid():
+            raise ValueError('.secrets.json must be a regular owner-only file owned by this user')
+        raw = stream.read(8193)
+    if len(raw) > 8192:
+        raise ValueError('credential file exceeds 8 KiB')
+    try:
+        value = json.loads(raw)['token']
+    except (ValueError, KeyError, TypeError) as exc:
+        raise ValueError('credential file must contain a token string') from exc
+    if not isinstance(value, str) or not value or len(value) > 4096 or any(ord(c) < 33 or ord(c) > 126 for c in value):
+        raise ValueError('token must contain printable ASCII without whitespace')
+    return value
+
+
+def identifier(value):
+    if not re.fullmatch(r'[A-Za-z0-9_-]{1,128}', value):
+        raise ValueError('identifier must contain 1-128 letters, digits, underscores or hyphens')
+    return value
+
+
+def api(path, method='GET', body=None):
+    payload = None if body is None else json.dumps(body, allow_nan=False).encode()
+    status, content_type, raw = request(ORIGIN + path, method, payload,
+        {'Authorization': AUTH_PREFIX + token(), 'Accept': 'application/json', 'Content-Type': 'application/json'})
+    if not raw:
+        return {'status': status}
+    if 'json' not in content_type.lower():
+        raise ValueError('provider response must be JSON')
+    try:
+        result = json.loads(raw, parse_constant=reject_constant)
+    except (ValueError, UnicodeError) as exc:
+        raise ValueError('provider returned invalid JSON') from exc
+    if not isinstance(result, (dict, list)):
+        raise ValueError('provider must return an object or array')
+    return result
+

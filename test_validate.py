@@ -12,6 +12,32 @@ SPEC.loader.exec_module(validator)
 
 
 class ValidatorTests(unittest.TestCase):
+    def test_catalog_has_one_decision_for_every_source_tool(self):
+        inventory = json.loads((ROOT / 'catalog/hermes.json').read_text())['tools']
+        decisions = json.loads((ROOT / 'catalog/coverage.json').read_text())
+        names = [entry['name'] for entry in decisions]
+        self.assertEqual(len(names), len(set(names)))
+        self.assertEqual(set(names), {entry['name'] for entry in inventory})
+        for entry in decisions:
+            self.assertIn(entry['status'], {'adapter', 'native', 'runtime', 'gateway', 'artifact'})
+            self.assertTrue(entry['reason'])
+            self.assertTrue(entry['source'])
+            self.assertTrue(entry['target'])
+
+    def test_long_network_timeout_requires_network_permission(self):
+        with tempfile.TemporaryDirectory() as temp:
+            target = Path(temp) / 'template'
+            shutil.copytree(ROOT / 'template', target)
+            spec = json.loads((target / 'plugin.json').read_text())
+            spec['limits']['timeout_seconds'] = 60
+            (target / 'plugin.json').write_text(json.dumps(spec))
+            with self.assertRaises(ValueError):
+                validator.validate_tool(target, template=True)
+            spec['capabilities']['network'] = True
+            spec['network'] = {'allow_hosts': ['api.example.com']}
+            (target / 'plugin.json').write_text(json.dumps(spec))
+            validator.validate_tool(target, template=True)
+
     def test_template(self):
         validator.validate_tool(ROOT / 'template', template=True)
 

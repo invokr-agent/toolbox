@@ -7,7 +7,7 @@ Installed checkout: `~/.hermes/hermes-agent`, revision
 Official repository: [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent).
 The six files below were fetched from the official repository at that revision
 and SHA-256 compared with the installed files: all matched. Only specifications
-and capability ideas informed this kit; implementation is original stdlib code.
+and capability ideas informed this kit; implementation is original Python, with three explicitly locked parser dependencies.
 
 | Inspected source / tool | What was taken or deliberately omitted |
 | --- | --- |
@@ -34,9 +34,9 @@ Paths below are relative to that revision of
 | --- | --- |
 | `docs/agents/README.md` | Read routing and existing subsystem ownership before adding behavior. |
 | `toolbox/README.md` | Plugin layout, manifest limits, JSON envelope, network caveat and per-tool venv. |
-| `toolbox/browser_agent/plugin.json` | Explicit namespace, policy and capability fields. Hammer uses one-shot and no network. |
+| `toolbox/browser_agent/plugin.json` | Explicit namespace, policy and capability fields. Hammer uses one-shot and explicit per-tool network profiles. |
 | `toolbox/browser_agent/main.py` | Outer result must be a string: JSON-encode structured results inside it. Clear error envelope. No browser code copied. |
-| `toolbox/browser_agent/requirements.txt` | Exact direct pin convention. Hammer needs no third-party packages. |
+| `toolbox/browser_agent/requirements.txt` | Exact direct pin convention. Most Hammer tools are stdlib; three document parsers have complete hash locks. |
 | `toolbox/browser_agent/test_main.py` | Offline tests of validation and protocol framing without launching external services. |
 | `docs/onboarding/05-toolbox.md` | Installation/discovery, namespace mounting, credential isolation, native retired-tool ownership. |
 | `docs/agents/adr/0005-python-toolbox-supply-chain.md` | Resolved wheel graph and runtime-generated hashes, approval and restricted installation. Zero deps avoid install-time exposure. |
@@ -58,3 +58,31 @@ Primary references: [Python JSON](https://docs.python.org/3/library/json.html),
 [datetime](https://docs.python.org/3/library/datetime.html),
 [HTMLParser](https://docs.python.org/3/library/html.parser.html), and
 [RFC 6901](https://www.rfc-editor.org/rfc/rfc6901).
+
+## Expanded catalog inspection
+
+`catalog/hermes.json` records all 94 registration/toolset entries, schema symbols,
+source line numbers and installed file SHA-256 hashes. `catalog/coverage.json`
+and its readable table record what was adopted or why a host/gateway tool is not
+portable. Dynamic provider registrations are outside that static inventory.
+
+| Inspected Hermes path | Adopted intent / adaptation |
+| --- | --- |
+| `tools/feishu_doc_tool.py`, `tools/feishu_drive_tool.py` | Document token/raw text; comment IDs, pages and text replies. Direct fixed-host REST calls, per-tool tokens; no gateway session. |
+| `tools/homeassistant_tool.py:354-469` | Entity state, domain filtering, service discovery/calls. Explicit public HTTPS proxy only; no LAN discovery or inherited configuration. |
+| `tools/discord_tool.py` | Action enums, channel/guild IDs, message reads and guild metadata. Narrow bot adapter; message sends disable mentions; no destructive admin actions. |
+| `toolsets.py:378-379` | Seven Spotify capability names. Core checkout has no corresponding provider schemas; original narrow schemas use Spotify's official API, including current playlist /items endpoint. |
+| `tools/vision_tools.py` | Image/video URL plus question. Direct provider completion instead of local download, native model-context attachment or frame extraction. |
+| `tools/image_generation_tool.py` | Prompt-based image creation. Single direct-provider URL result, no file delivery or local image edit. |
+| `tools/video_generation_tool.py`, `tools/xai_video_tools.py` | Prompt/model and source video arguments. Async submit/poll preserves subprocess bounds; no sleeps, shared jobs or file downloads. |
+| `tools/x_search_tool.py:324-349` | Responses input, x_search tool and store=false. Direct bounded response, no account posting. |
+| `tools/flux3_video_tool.py` | Examined gateway auth/upload/poll/delivery contracts; rejected borrowing Hermes bearer or faking gateway policy. |
+| `tools/kanban_tools.py`, `tools/project_tools.py`, browser/UI/gateway files in inventory | Registration/schema capability audit; no shared mutable runtime or desktop authority copied into stateless tools. |
+
+Primary API references are linked in each adapter README: Home Assistant REST,
+Feishu docs/drive APIs, Discord message/guild resources, Spotify Web API, and xAI
+inference API. Dependencies use official PyPI metadata and wheel SHA-256 values:
+PyYAML 6.0.3, Markdown 3.10.3 and pypdf 6.19.0. Per-tool READMEs record exact
+parser scope and limitations. No third-party blog recipes or executable Hermes
+code were copied. Only the original six files above were compared byte-for-byte
+with the official repository; the expanded inventory hashes describe local source.
