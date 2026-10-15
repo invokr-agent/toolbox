@@ -1,0 +1,52 @@
+{
+  "name": "hammer_web_fetch",
+  "description": "Fetch readable text and links from an approved HTTPS URL.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"hammer_web_fetch\", \"arguments\": {\"url\": \"https://docs.python.org/3/\", \"limit\": 1000}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "url": {
+        "type": "string",
+        "description": "Approved HTTPS URL.",
+        "maxLength": 32000
+      },
+      "limit": {
+        "type": "integer",
+        "description": "Maximum text characters.",
+        "default": 8000,
+        "minimum": 1,
+        "maximum": 12000
+      }
+    },
+    "required": [
+      "url"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": true,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 15,
+    "memory_mb": 128,
+    "output_kb": 32
+  },
+  "network": {
+    "allow_hosts": [
+      "docs.python.org",
+      "en.wikipedia.org",
+      "example.org"
+    ]
+  }
+}
