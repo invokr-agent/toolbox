@@ -1,0 +1,49 @@
+{
+  "name": "hammer_feishu_drive_add_comment",
+  "description": "Post a whole-document Feishu comment.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"hammer_feishu_drive_add_comment\", \"arguments\": {\"file_token\": \"doc123\", \"text\": \"Example comment\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "file_token": {
+        "type": "string",
+        "description": "Document file token.",
+        "maxLength": 128
+      },
+      "text": {
+        "type": "string",
+        "description": "Plain text to post.",
+        "maxLength": 4000
+      }
+    },
+    "required": [
+      "file_token",
+      "text"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": true,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 15,
+    "memory_mb": 128,
+    "output_kb": 32
+  },
+  "network": {
+    "allow_hosts": [
+      "open.feishu.cn"
+    ]
+  }
+}
