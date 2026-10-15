@@ -6,6 +6,13 @@ allowlists and inconsistent network declarations fail validation. Network tests
 mock DNS, sockets, TLS and HTTP; the Go overlay loads those manifests without
 contacting providers. Offline tools retain the original 3-second profile.
 
+Dependency-bearing tools must include exact full-closure requirements,
+`requirements.lock` with SHA-256 wheel hashes, and `dependencies.json` mapping
+allowed import modules to pins. Tests never install anything: use a preprepared
+per-tool `.venv`, or an interpreter already carrying the exact versions checked
+by that tool's tests. The Go overlay validates these manifests without invoking
+the install path. Its sandbox execution checks remain for stdlib-only tools.
+
 Invokr revision: `3ffb0f91204d461706f79b7e448f51d5c4c9f24e`.
 Repository: `https://github.com/antonikliment/invokr-pre-release`.
 
