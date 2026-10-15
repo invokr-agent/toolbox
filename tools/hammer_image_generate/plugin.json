@@ -1,0 +1,49 @@
+{
+  "name": "hammer_image_generate",
+  "description": "Generate one image with xAI and return its URL.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"hammer_image_generate\", \"arguments\": {\"prompt\": \"A lake at sunrise\", \"model\": \"operator-selected-model\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "prompt": {
+        "type": "string",
+        "description": "Image description.",
+        "maxLength": 4000
+      },
+      "model": {
+        "type": "string",
+        "description": "xAI image generation model ID.",
+        "maxLength": 128
+      }
+    },
+    "required": [
+      "prompt",
+      "model"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": true,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 60,
+    "memory_mb": 128,
+    "output_kb": 32
+  },
+  "network": {
+    "allow_hosts": [
+      "api.x.ai"
+    ]
+  }
+}
