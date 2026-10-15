@@ -1,39 +1,70 @@
-# Hammer — Python toolbox extension kit for invokr
+# Hammer — isolated Python tools for invokr
 
-**Expansion in progress:** the complete 94-tool Hermes inventory and ordered
-branch-stack policy live in [catalog/README.md](catalog/README.md). `master`
-preserves the original nine-tool release documented below. Stack branches add
-network-capable plugins with explicit per-tool allowlists and 15-second limits;
-their READMEs state configuration and permissions. Original utilities retain
-the stricter offline profile.
+The complete branch stack provides 42 independent tools. `main` preserves the
+initial nine-tool release; use the final stack branch for the complete kit.
+[Full Hermes disposition](catalog/README.md) accounts for all 94 named source
+tools, including native replacements and runtime/gateway blockers. An adapter
+implements only the operations documented in its own README, not every Hermes
+provider/backend option.
 
-Nine small, independent tools for local models. Each directory under `tools/`
-is a complete invokr plugin: manifest, Python entrypoint, dependency declaration,
-offline tests and README. Python 3.11+ on Linux; standard library only.
+Python 3.11+ on Linux. Each directory is complete: plugin.json, main.py, exact
+requirements, offline tests and README. No runtime cross-tool imports or shared
+mutable state. Dependencies are restricted to three hash-locked document parsers.
 
-## Catalog and permissions
+## Tools and permissions
 
-| Tool | One-line specification | Required arguments | Network / workspace / persistent writes |
+All tools: approval `ask`, `code_execution` tier, one-shot execution, no workspace
+reads/writes and no persistent scratch. Limits: 128 MiB declared memory, 64 KiB
+input and network response, 30 KB serialized output. Offline tools use 3 seconds;
+network integrations 15 seconds; synchronous inference 60 seconds. No retries.
+Success is `{"result":"<JSON containing data>"}`; errors are
+`{"error":"invalid_request: explanation"}`. Few required primitive arguments,
+defaults for optional fields, unknown arguments rejected.
+
+| Tool | Specification | Network allowlist | Timeout |
 | --- | --- | --- | --- |
-| `hammer_json_query` | Select a JSON value by RFC 6901 pointer or list object keys. | `text` | none / none / none |
-| `hammer_csv_query` | Filter CSV rows by an exact column value and return bounded JSON rows. | `text` | none / none / none |
-| `hammer_text_patch` | Replace one exact match in supplied text and return text plus diff preview. | `text`, `old`, `new` | none / none / none |
-| `hammer_regex_search` | Search supplied text/code with regex, offsets and line numbers. | `text`, `pattern` | none / none / none |
-| `hammer_zip_inspect` | Inspect base64 ZIP metadata and flag suspicious paths without extraction. | `base64` | none / none / none |
-| `hammer_calculate` | Evaluate bounded arithmetic without arbitrary code execution. | `expression` | none / none / none |
-| `hammer_units` | Convert fixed length, mass, duration and temperature units. | `value`, `from_unit`, `to_unit` | none / none / none |
-| `hammer_datetime` | Shift an explicit-offset ISO timestamp and convert its UTC offset. | `timestamp` | none / none / none |
-| `hammer_html_extract` | Convert supplied HTML to readable text and HTTP(S) links. | `html` | none / none / none |
-
-All declare `executes_code: true` because Python runs, `daemon: false`, approval
-`ask`, and tier `code_execution`. This is distinct from accepting arbitrary user
-code. No tool spawns a subprocess. Data arrives as arguments, never host paths.
-
-Each request is at most 64 KiB; encoded response at most 30 KB (under invokr's
-32 KiB cap); Python alarm 2 seconds; invokr timeout 3 seconds and memory 128 MiB.
-Results use `{"result":"<JSON containing a data object>"}`; failures use
-`{"error":"invalid_request: explanation"}`. JSON remains parseable on overflow.
-Optional parameters have defaults in each manifest; all unknown arguments fail.
+| [hammer_calculate](tools/hammer_calculate/README.md) | Evaluate bounded arithmetic: + - * / // % and parentheses. | off | 3 s |
+| [hammer_code_outline](tools/hammer_code_outline/README.md) | List Python classes, functions, arguments and docstrings without executing source. | off | 3 s |
+| [hammer_csv_query](tools/hammer_csv_query/README.md) | Filter CSV rows by exact column value; return JSON rows. | off | 3 s |
+| [hammer_datetime](tools/hammer_datetime/README.md) | Shift an offset-aware ISO timestamp and convert its UTC offset. | off | 3 s |
+| [hammer_discord](tools/hammer_discord/README.md) | Read Discord channel messages or send a text message. | discord.com | 15 s |
+| [hammer_discord_admin](tools/hammer_discord_admin/README.md) | List Discord guild channels or roles without changing them. | discord.com | 15 s |
+| [hammer_docx_extract](tools/hammer_docx_extract/README.md) | Extract plain paragraphs from base64 DOCX without external relationships. | off | 3 s |
+| [hammer_feishu_doc_read](tools/hammer_feishu_doc_read/README.md) | Read the plain text of one Feishu document. | open.feishu.cn | 15 s |
+| [hammer_feishu_drive_add_comment](tools/hammer_feishu_drive_add_comment/README.md) | Post a whole-document Feishu comment. | open.feishu.cn | 15 s |
+| [hammer_feishu_drive_list_comment_replies](tools/hammer_feishu_drive_list_comment_replies/README.md) | List one page of replies to a Feishu comment. | open.feishu.cn | 15 s |
+| [hammer_feishu_drive_list_comments](tools/hammer_feishu_drive_list_comments/README.md) | List one page of Feishu document comments. | open.feishu.cn | 15 s |
+| [hammer_feishu_drive_reply_comment](tools/hammer_feishu_drive_reply_comment/README.md) | Post a text reply to a Feishu comment. | open.feishu.cn | 15 s |
+| [hammer_ha_call_service](tools/hammer_ha_call_service/README.md) | Call one Home Assistant service with explicit JSON data. | homeassistant.example.invalid | 15 s |
+| [hammer_ha_get_state](tools/hammer_ha_get_state/README.md) | Read the current Home Assistant state of one entity. | homeassistant.example.invalid | 15 s |
+| [hammer_ha_list_entities](tools/hammer_ha_list_entities/README.md) | List Home Assistant entities, optionally filtered by domain. | homeassistant.example.invalid | 15 s |
+| [hammer_ha_list_services](tools/hammer_ha_list_services/README.md) | List Home Assistant services, optionally filtered by domain. | homeassistant.example.invalid | 15 s |
+| [hammer_html_extract](tools/hammer_html_extract/README.md) | Extract readable text and safe links from supplied HTML. | off | 3 s |
+| [hammer_http_api](tools/hammer_http_api/README.md) | Call approved HTTPS JSON APIs with an explicit method and optional JSON body. | api.github.com | 15 s |
+| [hammer_image_generate](tools/hammer_image_generate/README.md) | Generate one image with xAI and return its URL. | api.x.ai | 60 s |
+| [hammer_json_query](tools/hammer_json_query/README.md) | Select JSON by JSON Pointer; return value or object keys. | off | 3 s |
+| [hammer_markdown_convert](tools/hammer_markdown_convert/README.md) | Convert Markdown to HTML with tables and fenced code blocks. | off | 3 s |
+| [hammer_pdf_extract](tools/hammer_pdf_extract/README.md) | Extract a bounded PDF page text layer from base64 bytes; no OCR. | off | 3 s |
+| [hammer_regex_search](tools/hammer_regex_search/README.md) | Find regex matches in supplied text with line numbers. | off | 3 s |
+| [hammer_spotify_albums](tools/hammer_spotify_albums/README.md) | Read one Spotify album or a page of its tracks. | api.spotify.com | 15 s |
+| [hammer_spotify_devices](tools/hammer_spotify_devices/README.md) | List available Spotify playback devices. | api.spotify.com | 15 s |
+| [hammer_spotify_library](tools/hammer_spotify_library/README.md) | Read one page of your saved Spotify tracks. | api.spotify.com | 15 s |
+| [hammer_spotify_playback](tools/hammer_spotify_playback/README.md) | Read Spotify playback state or control active playback. | api.spotify.com | 15 s |
+| [hammer_spotify_playlists](tools/hammer_spotify_playlists/README.md) | List your Spotify playlists or read playlist items. | api.spotify.com | 15 s |
+| [hammer_spotify_queue](tools/hammer_spotify_queue/README.md) | Read the Spotify queue or append one track or episode. | api.spotify.com | 15 s |
+| [hammer_spotify_search](tools/hammer_spotify_search/README.md) | Search Spotify for tracks, artists or albums. | api.spotify.com | 15 s |
+| [hammer_text_patch](tools/hammer_text_patch/README.md) | Replace one exact text match and preview a unified diff. | off | 3 s |
+| [hammer_units](tools/hammer_units/README.md) | Convert length, mass, duration, or temperature units. | off | 3 s |
+| [hammer_video_analyze](tools/hammer_video_analyze/README.md) | Ask an xAI model a question about a public video URL. | api.x.ai | 60 s |
+| [hammer_video_generate](tools/hammer_video_generate/README.md) | Submit or poll an xAI video generation job. | api.x.ai | 15 s |
+| [hammer_vision_analyze](tools/hammer_vision_analyze/README.md) | Ask an xAI model a question about a public image URL. | api.x.ai | 60 s |
+| [hammer_x_search](tools/hammer_x_search/README.md) | Search public X posts using the xAI search tool. | api.x.ai | 60 s |
+| [hammer_xai_video_edit](tools/hammer_xai_video_edit/README.md) | Submit or poll an xAI video edit job. | api.x.ai | 15 s |
+| [hammer_xai_video_extend](tools/hammer_xai_video_extend/README.md) | Submit or poll an xAI video extension job. | api.x.ai | 15 s |
+| [hammer_xlsx_read](tools/hammer_xlsx_read/README.md) | Read cached cell values from a base64 XLSX worksheet; never evaluate formulas. | off | 3 s |
+| [hammer_xml_query](tools/hammer_xml_query/README.md) | Select XML elements by a simple ElementTree path; reject DTDs and entities. | off | 3 s |
+| [hammer_yaml_query](tools/hammer_yaml_query/README.md) | Select a YAML value by JSON Pointer; reject aliases and custom tags. | off | 3 s |
+| [hammer_zip_inspect](tools/hammer_zip_inspect/README.md) | List ZIP metadata from base64 bytes without extracting files. | off | 3 s |
 
 ## Install and enable
 
@@ -70,12 +101,17 @@ Required operator settings:
   or credential passthrough. Use the normal system Python interpreter, outside
   any tool directory.
 
-Invokr may ask to prepare the individual `.venv` on first use. The comment-only
-`requirements.txt` parses as zero dependencies, so its current preparation code
-creates a venv without package resolution, downloads or pip installs. Runtime
-and tests do not require network. Do not manually add hash options to
-`requirements.txt`: invokr expects exact direct pins and generates the resolved
-hash lock itself (see [contract](contracts/README.md)).
+Invokr prepares an independent `.venv` for each plugin. Most tools have no external
+packages. YAML, Markdown and PDF tools declare exact dependency pins, import maps
+and complete SHA-256 wheel locks. Resolve/approve/install dependencies separately
+under invokr's supply-chain policy before running tests. Tests never install
+packages or access providers. See [contract](contracts/README.md).
+
+Network integrations require explicit per-tool configuration documented in their
+READMEs. Create that tool's `.secrets.json` with only its scoped token, mode 0600;
+never share credential files, use symlinks, or pass ambient environment secrets.
+Home Assistant needs an approved public HTTPS proxy hostname configured in both
+the manifest and implementation. No tool is enabled or provisioned automatically.
 
 ## Isolation model and limits
 
@@ -102,56 +138,45 @@ Running `python3 main.py` directly is for trusted tests, not sandboxed execution
 The validator checks contracts and obvious import drift, not arbitrary-code
 security. Review additions before installation.
 
+Network-off tools get a distinct network namespace. Network tools declare exact
+hosts and independently validate/pin public IPs with verified TLS, no redirects,
+proxies or ambient auth. Invokr's DNS host scoping is **not a kernel egress
+firewall**: a malicious replacement network script could use literal-IP egress.
+The kit cannot promise complete containment against malicious code beyond the
+target runtime's actual boundaries. It does not grant workspace access to work
+around these limits. Remote API state changes remain subject to approval.
+
 ## Add a tool
 
-1. Copy `template/` to `tools/hammer_<name>/`.
-2. Rename the manifest tool, example and description; define at most three
-   required primitive arguments with short descriptions. Update README.
-3. Replace `run(args)`; keep validation, time and output bounds. Add useful
-   success, malformed-input and adversarial tests in `test_main.py`.
-4. Keep `requirements.txt` stdlib-only and permissions minimal. Network,
-   workspace access or dependencies need a deliberate contract-policy change.
-5. Run `make test`, `make lint-ci`, and the invokr contract check below.
-6. Commit the entire directory once as `tool(<name>): <one-line purpose>`.
-   Amend/fixup subsequent corrections into that commit. Tools never import each
-   other, so their commits remain independently revertible/cherry-pickable.
+1. Copy `template/` into `tools/hammer_<name>/`; never import shared runtime code.
+2. Rename the manifest/example; use short descriptions and at most three required primitive parameters.
+3. Implement `run(args)` with bounded data. Keep envelope validation and output/deadline guards.
+4. For network tools, copy `network.py.example` and optionally `auth.py.example` into the tool itself, declare exact hosts and select a 15- or 60-second limit. Keep environment isolation.
+5. Prefer stdlib. External imports require exact full-closure pins, `dependencies.json` and SHA-256 wheel `requirements.lock`; preparation happens separately from offline tests.
+6. Add meaningful offline success/error/adversarial tests, update the tool README and catalog, run the checks below.
+7. Commit the complete tool directory once: `tool(<name>): <purpose>`. Later corrections amend/fixup that commit. Push after each commit. Shared validator/template/docs commits precede all tools.
 
-The template is copied, never imported. `validate.py` discovers directories,
-checks the vendored strict manifest schema, permission values, exact dependency
-policy, examples, required files and imports, then runs each tool's tests in a
-fresh interpreter with a minimal environment. It also validates/tests the
-template. No network installs or external services occur during these tests.
+Each tool commit can be cherry-picked or reverted independently. Shared infrastructure
+is needed only for kit validation, not execution. Network mutations are explicit
+operations; no tests send messages, change devices or spend provider credits.
 
-## Invokr compatibility checks
-
-The target contract is invokr commit
-`3ffb0f91204d461706f79b7e448f51d5c4c9f24e`. Use a disposable source snapshot:
+## Checks
 
 ```sh
+GOTOOLCHAIN=go1.26.3 make test
+GOTOOLCHAIN=go1.26.3 make lint-ci
 GOTOOLCHAIN=go1.26.3 make contract INVOKR_SOURCE=/path/to/invokr-snapshot
 ```
 
-The runner adds an external test using Go's `-overlay`, without modifying invokr
-source. It loads each actual manifest, validates its example, passes Python
-output through invokr's one-shot and daemon decoders, and invokes every example
-inside the real namespace sandbox. Dependencies stay empty. Venvs are created
-only in Go test temporary directories. A separate adversarial probe checks
-sibling/host access denial, read-only source, isolated environment, private
-scratch and a distinct network namespace. Unavailable sandbox support fails
-this gate rather than silently testing an unsandboxed fallback.
+Target invokr commit: `3ffb0f91204d461706f79b7e448f51d5c4c9f24e`.
+The overlay loads every actual manifest through invokr's toolbox loader and
+validates examples. Stdlib offline tools also run inside its real namespace
+sandbox through actual result decoders. Network examples and dependency tools
+are loader-only checks; Python behavior tests use mocks or preprepared isolated
+dependencies. A separate adversarial probe checks sibling/host read and write
+denial, environment isolation, private scratch and distinct network namespace.
+Missing sandbox support fails rather than falling back to unsandboxed execution.
 
-Run invokr's `GOTOOLCHAIN=go1.26.3 make test` and `make lint-ci` in that disposable
-snapshot too. These are baseline compatibility checks; the standalone kit adds
-no invokr implementation Go code. See [VALIDATION.md](VALIDATION.md) for recorded
-results and [SOURCES.md](SOURCES.md) for inspected Hermes/invokr sources.
-
-## Evaluated and omitted
-
-Web fetch/search and HTTP API clients need network authority. Invokr's hostname
-allowlist restricts resolution but does not block literal-IP egress. This kit
-keeps network off and provides offline HTML extraction instead. Native invokr
-tools cover web access when approved. YAML would add a parser dependency; JSON
-and CSV cover the initial structured-data scope. Archive extraction and disk
-patching add writes; inventory and text patch previews are provided instead.
-General code execution, persistent memory and cron mutations already have
-native invokr owners. Avoid parallel stores/schedulers and arbitrary code here.
+Run invokr's own `GOTOOLCHAIN=go1.26.3 make test` and `make lint-ci` in a disposable
+source snapshot too. See [validation](VALIDATION.md), [source decisions](SOURCES.md)
+and [contract details](contracts/README.md). No invokr checkout edits are required.
