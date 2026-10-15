@@ -1,0 +1,62 @@
+{
+  "name": "hammer_feishu_drive_list_comment_replies",
+  "description": "List one page of replies to a Feishu comment.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"hammer_feishu_drive_list_comment_replies\", \"arguments\": {\"file_token\": \"doc123\", \"comment_id\": \"comment123\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "file_token": {
+        "type": "string",
+        "description": "Document file token.",
+        "maxLength": 128
+      },
+      "comment_id": {
+        "type": "string",
+        "description": "Comment identifier.",
+        "maxLength": 128
+      },
+      "page_size": {
+        "type": "integer",
+        "description": "Maximum items in this page.",
+        "default": 20,
+        "minimum": 1,
+        "maximum": 100
+      },
+      "page_token": {
+        "type": "string",
+        "description": "Continuation token; empty starts first page.",
+        "maxLength": 2048,
+        "default": ""
+      }
+    },
+    "required": [
+      "file_token",
+      "comment_id"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": true,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 15,
+    "memory_mb": 128,
+    "output_kb": 32
+  },
+  "network": {
+    "allow_hosts": [
+      "open.feishu.cn"
+    ]
+  }
+}
