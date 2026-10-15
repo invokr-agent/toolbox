@@ -1,0 +1,55 @@
+{
+  "name": "hammer_video_analyze",
+  "description": "Ask an xAI model a question about a public video URL.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"hammer_video_analyze\", \"arguments\": {\"video_url\": \"https://media.example.com/example.mp4\", \"question\": \"Describe the scene.\", \"model\": \"operator-selected-model\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "video_url": {
+        "type": "string",
+        "description": "Public HTTPS video URL.",
+        "maxLength": 2000
+      },
+      "question": {
+        "type": "string",
+        "description": "Question about the media.",
+        "maxLength": 4000
+      },
+      "model": {
+        "type": "string",
+        "description": "xAI model supporting this media type.",
+        "maxLength": 128
+      }
+    },
+    "required": [
+      "video_url",
+      "question",
+      "model"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": true,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 60,
+    "memory_mb": 128,
+    "output_kb": 32
+  },
+  "network": {
+    "allow_hosts": [
+      "api.x.ai"
+    ]
+  }
+}
