@@ -1,5 +1,11 @@
 # Contract source and scope
 
+Expansion adds a second manifest profile: explicit `network.allow_hosts`,
+`capabilities.network: true`, 15-second deadline, no workspace access. Missing
+allowlists and inconsistent network declarations fail validation. Network tests
+mock DNS, sockets, TLS and HTTP; the Go overlay loads those manifests without
+contacting providers. Offline tools retain the original 3-second profile.
+
 Invokr revision: `3ffb0f91204d461706f79b7e448f51d5c4c9f24e`.
 Repository: `https://github.com/antonikliment/invokr-pre-release`.
 

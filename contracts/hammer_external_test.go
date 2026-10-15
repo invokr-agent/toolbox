@@ -42,6 +42,14 @@ func TestHammerExternalContracts(t *testing.T) {
 			if err := core.ValidateArgs(p.Parameters, call.Arguments); err != nil {
 				t.Fatal(err)
 			}
+			if p.Metadata.Capabilities.Network {
+				// Network producers are tested with local mocks by their Python suite.
+				// Do not execute an example that could contact a live provider here.
+				if len(p.allowHosts) == 0 || p.Metadata.Policy.Approval != "ask" {
+					t.Fatal("network manifest lacks allowlist/approval")
+				}
+				return
+			}
 			// Exercise the actual Python producer against both Go decoders offline.
 			python, err := exec.LookPath("python3")
 			if err != nil {

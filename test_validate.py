@@ -18,6 +18,7 @@ class ValidatorTests(unittest.TestCase):
     def test_rejects_drift(self):
         mutations = [lambda s: s['capabilities'].update(network=True),
                      lambda s: s.update(daemon=0),
+                     lambda s: s.update(network={'allow_hosts': ['example.org']}),
                      lambda s: s['capabilities'].update(writes_workspace=True),
                      lambda s: s['limits'].update(timeout_seconds=90),
                      lambda s: s.update(daemon=True),
