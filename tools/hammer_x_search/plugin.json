@@ -1,0 +1,49 @@
+{
+  "name": "hammer_x_search",
+  "description": "Search public X posts using the xAI search tool.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"hammer_x_search\", \"arguments\": {\"query\": \"Recent public posts about Python\", \"model\": \"operator-selected-model\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string",
+        "description": "Search question.",
+        "maxLength": 4000
+      },
+      "model": {
+        "type": "string",
+        "description": "xAI model supporting X search.",
+        "maxLength": 128
+      }
+    },
+    "required": [
+      "query",
+      "model"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": true,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 60,
+    "memory_mb": 128,
+    "output_kb": 32
+  },
+  "network": {
+    "allow_hosts": [
+      "api.x.ai"
+    ]
+  }
+}
