@@ -1,0 +1,60 @@
+{
+  "name": "hammer_spotify_library",
+  "description": "Read one page of your saved Spotify tracks.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"hammer_spotify_library\", \"arguments\": {\"action\": \"tracks\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string",
+        "description": "Operation.",
+        "maxLength": 32000,
+        "enum": [
+          "tracks"
+        ]
+      },
+      "limit": {
+        "type": "integer",
+        "description": "Page size.",
+        "default": 5,
+        "minimum": 1,
+        "maximum": 50
+      },
+      "offset": {
+        "type": "integer",
+        "description": "Page offset.",
+        "default": 0,
+        "minimum": 0,
+        "maximum": 10000
+      }
+    },
+    "required": [
+      "action"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": true,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 15,
+    "memory_mb": 128,
+    "output_kb": 32
+  },
+  "network": {
+    "allow_hosts": [
+      "api.spotify.com"
+    ]
+  }
+}
