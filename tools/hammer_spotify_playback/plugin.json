@@ -1,0 +1,56 @@
+{
+  "name": "hammer_spotify_playback",
+  "description": "Read Spotify playback state or control active playback.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"hammer_spotify_playback\", \"arguments\": {\"action\": \"state\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string",
+        "description": "Playback operation.",
+        "maxLength": 32000,
+        "enum": [
+          "state",
+          "resume",
+          "pause",
+          "next",
+          "previous"
+        ]
+      },
+      "device_id": {
+        "type": "string",
+        "description": "Optional target device for controls.",
+        "maxLength": 128,
+        "default": ""
+      }
+    },
+    "required": [
+      "action"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": true,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 15,
+    "memory_mb": 128,
+    "output_kb": 32
+  },
+  "network": {
+    "allow_hosts": [
+      "api.spotify.com"
+    ]
+  }
+}
