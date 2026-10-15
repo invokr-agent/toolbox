@@ -1,0 +1,45 @@
+{
+  "name": "hammer_zip_inspect",
+  "description": "List ZIP metadata from base64 bytes without extracting files.",
+  "namespace": "hammer",
+  "example": "{\"name\":\"hammer_zip_inspect\",\"arguments\":{\"base64\":\"UEsFBgAAAAAAAAAAAAAAAAAAAAAAAA==\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "base64": {
+        "type": "string",
+        "description": "Base64 ZIP bytes.",
+        "maxLength": 32000
+      },
+      "limit": {
+        "type": "integer",
+        "description": "Maximum listed entries.",
+        "default": 50,
+        "minimum": 1,
+        "maximum": 200
+      }
+    },
+    "required": [
+      "base64"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": false,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 3,
+    "memory_mb": 128,
+    "output_kb": 32
+  }
+}
