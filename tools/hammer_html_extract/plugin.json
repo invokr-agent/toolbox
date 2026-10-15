@@ -1,0 +1,45 @@
+{
+  "name": "hammer_html_extract",
+  "description": "Extract readable text and safe links from supplied HTML.",
+  "namespace": "hammer",
+  "example": "{\"name\":\"hammer_html_extract\",\"arguments\":{\"html\":\"<h1>Hello</h1><p>Read <a href=\\\"https://example.org\\\">docs</a>.</p>\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "html": {
+        "type": "string",
+        "description": "HTML source; scripts and styles are ignored.",
+        "maxLength": 32000
+      },
+      "limit": {
+        "type": "integer",
+        "description": "Maximum text characters.",
+        "default": 8000,
+        "minimum": 1,
+        "maximum": 12000
+      }
+    },
+    "required": [
+      "html"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": false,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 3,
+    "memory_mb": 128,
+    "output_kb": 32
+  }
+}
