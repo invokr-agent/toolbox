@@ -1,0 +1,50 @@
+{
+  "name": "hammer_web_search",
+  "description": "Search a configured SearXNG endpoint; return titles, URLs and snippets.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"hammer_web_search\", \"arguments\": {\"query\": \"Python JSON Pointer\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string",
+        "description": "Search query.",
+        "maxLength": 32000
+      },
+      "limit": {
+        "type": "integer",
+        "description": "Maximum returned results.",
+        "default": 5,
+        "minimum": 1,
+        "maximum": 20
+      }
+    },
+    "required": [
+      "query"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": true,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 15,
+    "memory_mb": 128,
+    "output_kb": 32
+  },
+  "network": {
+    "allow_hosts": [
+      "search.example.org"
+    ]
+  }
+}
