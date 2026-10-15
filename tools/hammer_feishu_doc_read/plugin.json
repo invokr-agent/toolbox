@@ -1,0 +1,43 @@
+{
+  "name": "hammer_feishu_doc_read",
+  "description": "Read the plain text of one Feishu document.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"hammer_feishu_doc_read\", \"arguments\": {\"document_id\": \"doc123\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "document_id": {
+        "type": "string",
+        "description": "Document token, not a URL.",
+        "maxLength": 128
+      }
+    },
+    "required": [
+      "document_id"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": true,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 15,
+    "memory_mb": 128,
+    "output_kb": 32
+  },
+  "network": {
+    "allow_hosts": [
+      "open.feishu.cn"
+    ]
+  }
+}
