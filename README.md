@@ -1,5 +1,12 @@
 # Hammer — Python toolbox extension kit for invokr
 
+**Expansion in progress:** the complete 94-tool Hermes inventory and ordered
+branch-stack policy live in [catalog/README.md](catalog/README.md). `master`
+preserves the original nine-tool release documented below. Stack branches add
+network-capable plugins with explicit per-tool allowlists and 15-second limits;
+their READMEs state configuration and permissions. Original utilities retain
+the stricter offline profile.
+
 Nine small, independent tools for local models. Each directory under `tools/`
 is a complete invokr plugin: manifest, Python entrypoint, dependency declaration,
 offline tests and README. Python 3.11+ on Linux; standard library only.

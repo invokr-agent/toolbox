@@ -1,5 +1,10 @@
 # Validation record
 
+This records the original nine-tool release on `master`. Expansion branches run
+their own per-tool offline suites and the updated manifest gate before each
+commit. Network examples are never executed against live endpoints by the Go
+contract runner; it verifies their loader/approval/allowlist contract instead.
+
 Date: 2026-10-15. Python 3.14.7. Invokr contract:
 `3ffb0f91204d461706f79b7e448f51d5c4c9f24e`. Go toolchain: `go1.26.3`.
 

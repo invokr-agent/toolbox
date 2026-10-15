@@ -63,6 +63,11 @@ def validate_tool(directory, template=False):
             raise ValueError(f'{directory}: missing {name}')
     spec = json.loads((directory / 'plugin.json').read_text())
     check(spec, json.loads((ROOT / 'contracts/plugin.schema.json').read_text()))
+    network = spec['capabilities']['network']
+    if network != ('network' in spec):
+        raise ValueError('network tools require an explicit hostname allowlist')
+    if spec['limits']['timeout_seconds'] != (15 if network else 3):
+        raise ValueError('timeout must match network/offline profile')
     if spec['name'] != ('hammer_template' if template else directory.name):
         raise ValueError(f'{directory}: name/directory mismatch')
     parameters = spec['parameters']

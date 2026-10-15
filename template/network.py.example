@@ -1,0 +1,51 @@
+# Copy into the individual tool; never import this shared template at runtime.
+import http.client
+import ipaddress
+import socket
+import ssl
+from urllib.parse import urlsplit
+
+
+def request(url, method="GET", body=None, headers=None):
+    """One bounded HTTPS request; no proxies, redirects, ambient auth or cookies."""
+    if any(ord(char) < 33 or ord(char) == 127 for char in url):
+        raise ValueError("URL must not contain whitespace or controls")
+    parsed = urlsplit(url)
+    spec = json.loads(Path(__file__).with_name("plugin.json").read_text())
+    hosts = spec["network"]["allow_hosts"]
+    if (parsed.scheme != "https" or parsed.hostname not in hosts or parsed.port not in (None, 443)
+            or parsed.username is not None or parsed.password is not None or parsed.fragment):
+        raise ValueError("URL must be HTTPS port 443 on a declared host, without credentials or fragment")
+    addresses = socket.getaddrinfo(parsed.hostname, 443, type=socket.SOCK_STREAM)
+    if not addresses or any(not ipaddress.ip_address(item[4][0]).is_global for item in addresses):
+        raise ValueError("destination must resolve only to public IP addresses")
+    family, kind, protocol, _, address = addresses[0]
+    raw = socket.socket(family, kind, protocol)
+    connection = http.client.HTTPSConnection(parsed.hostname, timeout=8)
+    try:
+        raw.settimeout(8)
+        raw.connect(address)  # Pin the checked address: never resolve the hostname a second time.
+        connection.sock = ssl.create_default_context().wrap_socket(raw, server_hostname=parsed.hostname)
+        path = parsed.path or "/"
+        if parsed.query:
+            path += "?" + parsed.query
+        request_headers = {"Accept-Encoding": "identity", "User-Agent": "invokr-hammer/1"}
+        request_headers.update(headers or {})
+        connection.request(method, path, body=body, headers=request_headers)
+        response = connection.getresponse()
+        if 300 <= response.status < 400:
+            raise ValueError("redirect refused; use the approved final URL")
+        if not 200 <= response.status < 300:
+            raise ValueError("HTTP status " + str(response.status))
+        if response.getheader("Content-Encoding", "identity").lower() != "identity":
+            raise ValueError("compressed response refused")
+        data = response.read(65537)
+        if len(data) > 65536:
+            raise ValueError("response exceeds 64 KiB")
+        return response.status, response.getheader("Content-Type", ""), data
+    except (http.client.HTTPException, OSError) as exc:
+        # Do not echo URLs, tokens, query parameters or provider error bodies.
+        raise ValueError("HTTPS request failed: " + type(exc).__name__) from exc
+    finally:
+        connection.close()
+        raw.close()
