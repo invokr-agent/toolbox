@@ -1,0 +1,65 @@
+{
+  "name": "hammer_video_generate",
+  "description": "Submit or poll an xAI video generation job.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"hammer_video_generate\", \"arguments\": {\"action\": \"poll\", \"request_id\": \"job123\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string",
+        "description": "Submit a job or poll an existing job.",
+        "maxLength": 32000,
+        "enum": [
+          "submit",
+          "poll"
+        ]
+      },
+      "prompt": {
+        "type": "string",
+        "description": "Instructions for submit.",
+        "maxLength": 4000,
+        "default": ""
+      },
+      "model": {
+        "type": "string",
+        "description": "xAI video model ID for submit.",
+        "maxLength": 128,
+        "default": ""
+      },
+      "request_id": {
+        "type": "string",
+        "description": "Job ID for poll.",
+        "maxLength": 128,
+        "default": ""
+      }
+    },
+    "required": [
+      "action"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": true,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 15,
+    "memory_mb": 128,
+    "output_kb": 32
+  },
+  "network": {
+    "allow_hosts": [
+      "api.x.ai"
+    ]
+  }
+}
