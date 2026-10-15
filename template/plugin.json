@@ -1,0 +1,38 @@
+{
+  "name": "hammer_template",
+  "description": "Return supplied text.",
+  "namespace": "hammer",
+  "example": "{\"name\":\"hammer_template\",\"arguments\":{\"text\":\"hello\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "text": {
+        "type": "string",
+        "description": "Text to return.",
+        "maxLength": 32000
+      }
+    },
+    "required": [
+      "text"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": false,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 3,
+    "memory_mb": 128,
+    "output_kb": 32
+  }
+}
