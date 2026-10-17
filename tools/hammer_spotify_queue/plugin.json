@@ -1,0 +1,53 @@
+{
+  "name": "hammer_spotify_queue",
+  "description": "Read the Spotify queue or append one track or episode.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"hammer_spotify_queue\", \"arguments\": {\"action\": \"read\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string",
+        "description": "Read or append.",
+        "maxLength": 32000,
+        "enum": [
+          "read",
+          "add"
+        ]
+      },
+      "uri": {
+        "type": "string",
+        "description": "Spotify track/episode URI for add.",
+        "maxLength": 200,
+        "default": ""
+      }
+    },
+    "required": [
+      "action"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "always_ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": true,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 15,
+    "memory_mb": 128,
+    "output_kb": 32
+  },
+  "network": {
+    "allow_hosts": [
+      "api.spotify.com"
+    ]
+  }
+}
