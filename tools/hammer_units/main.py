@@ -71,7 +71,7 @@ def serve():
         output = json.dumps({"result": result})
         if len(output.encode()) > 30000:
             raise ValueError("output exceeds 30 KB; send a smaller chunk or lower limit")
-    except (ValueError, TypeError, KeyError, IndexError, ArithmeticError, RecursionError, TimeoutError, OSError) as exc:
+    except Exception as exc:  # any failure is a one-line error, never a traceback
         output = json.dumps({"error": "invalid_request: " + str(exc)[:200]})
     finally:
         signal.alarm(0)
