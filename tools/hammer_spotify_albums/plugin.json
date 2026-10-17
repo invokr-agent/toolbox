@@ -1,0 +1,67 @@
+{
+  "name": "hammer_spotify_albums",
+  "description": "Read one Spotify album or a page of its tracks.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"hammer_spotify_albums\", \"arguments\": {\"album_id\": \"album123\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "album_id": {
+        "type": "string",
+        "description": "Spotify album ID.",
+        "maxLength": 128
+      },
+      "action": {
+        "type": "string",
+        "description": "Read album metadata or tracks.",
+        "maxLength": 32000,
+        "default": "album",
+        "enum": [
+          "album",
+          "tracks"
+        ]
+      },
+      "limit": {
+        "type": "integer",
+        "description": "Maximum tracks.",
+        "default": 10,
+        "minimum": 1,
+        "maximum": 50
+      },
+      "offset": {
+        "type": "integer",
+        "description": "Track offset.",
+        "default": 0,
+        "minimum": 0,
+        "maximum": 10000
+      }
+    },
+    "required": [
+      "album_id"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask_once"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": true,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 15,
+    "memory_mb": 128,
+    "output_kb": 32
+  },
+  "network": {
+    "allow_hosts": [
+      "api.spotify.com"
+    ]
+  }
+}
