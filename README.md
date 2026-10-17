@@ -1,6 +1,6 @@
 # Hammer — isolated Python tools for invokr
 
-The complete branch stack provides 35 independent tools. `main` preserves the
+The complete branch stack provides 30 independent tools. `main` preserves the
 initial nine-tool release; use the final stack branch for the complete kit.
 [Full Hermes disposition](catalog/README.md) accounts for all 94 named source
 tools, including native replacements and runtime/gateway blockers. An adapter
@@ -30,11 +30,6 @@ defaults for optional fields, unknown arguments rejected.
 | [hammer_discord](tools/hammer_discord/README.md) | Read Discord channel messages or send a text message. | discord.com | 15 s |
 | [hammer_discord_admin](tools/hammer_discord_admin/README.md) | List Discord guild channels or roles without changing them. | discord.com | 15 s |
 | [hammer_docx_extract](tools/hammer_docx_extract/README.md) | Extract plain paragraphs from base64 DOCX without external relationships. | off | 3 s |
-| [hammer_feishu_doc_read](tools/hammer_feishu_doc_read/README.md) | Read the plain text of one Feishu document. | open.feishu.cn | 15 s |
-| [hammer_feishu_drive_add_comment](tools/hammer_feishu_drive_add_comment/README.md) | Post a whole-document Feishu comment. | open.feishu.cn | 15 s |
-| [hammer_feishu_drive_list_comment_replies](tools/hammer_feishu_drive_list_comment_replies/README.md) | List one page of replies to a Feishu comment. | open.feishu.cn | 15 s |
-| [hammer_feishu_drive_list_comments](tools/hammer_feishu_drive_list_comments/README.md) | List one page of Feishu document comments. | open.feishu.cn | 15 s |
-| [hammer_feishu_drive_reply_comment](tools/hammer_feishu_drive_reply_comment/README.md) | Post a text reply to a Feishu comment. | open.feishu.cn | 15 s |
 | [hammer_ha_call_service](tools/hammer_ha_call_service/README.md) | Call one Home Assistant service with explicit JSON data. | homeassistant.example.invalid | 15 s |
 | [hammer_ha_get_state](tools/hammer_ha_get_state/README.md) | Read the current Home Assistant state of one entity. | homeassistant.example.invalid | 15 s |
 | [hammer_ha_list_entities](tools/hammer_ha_list_entities/README.md) | List Home Assistant entities, optionally filtered by domain. | homeassistant.example.invalid | 15 s |

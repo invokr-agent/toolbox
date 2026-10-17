@@ -217,41 +217,41 @@
   },
   {
     "name": "feishu_doc_read",
-    "status": "adapter",
-    "target": "hammer_feishu_doc_read",
-    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
     "source": "tools/feishu_doc_tool.py",
     "line": 128
   },
   {
     "name": "feishu_drive_add_comment",
-    "status": "adapter",
-    "target": "hammer_feishu_drive_add_comment",
-    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
     "source": "tools/feishu_drive_tool.py",
     "line": 421
   },
   {
     "name": "feishu_drive_list_comment_replies",
-    "status": "adapter",
-    "target": "hammer_feishu_drive_list_comment_replies",
-    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
     "source": "tools/feishu_drive_tool.py",
     "line": 397
   },
   {
     "name": "feishu_drive_list_comments",
-    "status": "adapter",
-    "target": "hammer_feishu_drive_list_comments",
-    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
     "source": "tools/feishu_drive_tool.py",
     "line": 385
   },
   {
     "name": "feishu_drive_reply_comment",
-    "status": "adapter",
-    "target": "hammer_feishu_drive_reply_comment",
-    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
     "source": "tools/feishu_drive_tool.py",
     "line": 409
   },
