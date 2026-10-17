@@ -20,7 +20,7 @@ def run(args):
         for row in reader:
             if len(row) != len(header):
                 raise ValueError("CSV row width differs from header")
-            record = dict(zip(header, row))
+            record = dict(zip(header, row, strict=True))
             if not column or record[column] == args["equals"]:
                 count += 1
                 if len(rows) < args["limit"]:
