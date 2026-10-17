@@ -1,0 +1,52 @@
+{
+  "name": "xlsx_read",
+  "description": "Read cached cell values from a base64 XLSX worksheet; never evaluate formulas.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"xlsx_read\", \"arguments\": {\"base64\": \"UEsDBBQAAAAIAPO+T12X0SzhVwAAAGIAAAAUAAAAeGwvc2hhcmVkU3RyaW5ncy54bWwVjDEOgCAMAL9ieIAlDg6mdvYbRKuQUCC0g88Xx7tLDlVteiUX3V00axuAnpEl6Fwbl1Hu2iXYwP6Ats7h0shskmHxfgUJqThCTYRGB+dcEYwQfgFjTh9QSwMEFAAAAAgA875PXUIweaaCAAAAtwAAABgAAAB4bC93b3Jrc2hlZXRzL3NoZWV0MS54bWxNzt0KAiEQBeBXEW+DRveiixgHil5kMDej9QeV3R4/k1i6nPNxDoNbKq/qnWviHZZYjfSt5TNAtd4FrseUXewypxK49bM8oObi+D5KYYFJqRMEfkZJOLIbNyYsaSO0ohh50VI0I2v3lRTCSgj2Z1fd05n0QSPMX592h7EAf5Ow/0ofUEsBAhQDFAAAAAgA875PXZfRLOFXAAAAYgAAABQAAAAAAAAAAAAAAIABAAAAAHhsL3NoYXJlZFN0cmluZ3MueG1sUEsBAhQDFAAAAAgA875PXUIweaaCAAAAtwAAABgAAAAAAAAAAAAAAIABiQAAAHhsL3dvcmtzaGVldHMvc2hlZXQxLnhtbFBLBQYAAAAAAgACAIgAAABBAQAAAAA=\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "base64": {
+        "type": "string",
+        "description": "Base64 XLSX bytes.",
+        "maxLength": 32000
+      },
+      "sheet": {
+        "type": "integer",
+        "description": "Worksheet file number (sheet1.xml is 1).",
+        "default": 1,
+        "minimum": 1,
+        "maximum": 100
+      },
+      "limit": {
+        "type": "integer",
+        "description": "Maximum cells.",
+        "default": 100,
+        "minimum": 1,
+        "maximum": 200
+      }
+    },
+    "required": [
+      "base64"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": false,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 3,
+    "memory_mb": 128,
+    "output_kb": 32
+  }
+}

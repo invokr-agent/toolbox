@@ -26,36 +26,36 @@ defaults for optional fields, unknown arguments rejected.
 
 | Tool | Specification | Network allowlist | Timeout |
 | --- | --- | --- | --- |
-| [hammer_calculate](tools/hammer_calculate/README.md) | Evaluate bounded arithmetic: + - * / // % and parentheses. | off | 3 s |
-| [hammer_code_outline](tools/hammer_code_outline/README.md) | List Python classes, functions, arguments and docstrings without executing source. | off | 3 s |
-| [hammer_csv_query](tools/hammer_csv_query/README.md) | Filter CSV rows by exact column value; return JSON rows. | off | 3 s |
-| [hammer_datetime](tools/hammer_datetime/README.md) | Shift an offset-aware ISO timestamp and convert its UTC offset. | off | 3 s |
-| [hammer_discord](tools/hammer_discord/README.md) | Read Discord channel messages or send a text message. | discord.com | 15 s |
-| [hammer_discord_admin](tools/hammer_discord_admin/README.md) | List Discord guild channels or roles without changing them. | discord.com | 15 s |
-| [hammer_docx_extract](tools/hammer_docx_extract/README.md) | Extract plain paragraphs from base64 DOCX without external relationships. | off | 3 s |
-| [hammer_ha_call_service](tools/hammer_ha_call_service/README.md) | Call one Home Assistant service with explicit JSON data. | homeassistant.example.invalid | 15 s |
-| [hammer_ha_get_state](tools/hammer_ha_get_state/README.md) | Read the current Home Assistant state of one entity. | homeassistant.example.invalid | 15 s |
-| [hammer_ha_list_entities](tools/hammer_ha_list_entities/README.md) | List Home Assistant entities, optionally filtered by domain. | homeassistant.example.invalid | 15 s |
-| [hammer_ha_list_services](tools/hammer_ha_list_services/README.md) | List Home Assistant services, optionally filtered by domain. | homeassistant.example.invalid | 15 s |
-| [hammer_html_extract](tools/hammer_html_extract/README.md) | Extract readable text and safe links from supplied HTML. | off | 3 s |
-| [hammer_http_api](tools/hammer_http_api/README.md) | Call approved HTTPS JSON APIs with an explicit method and optional JSON body. | api.github.com | 15 s |
-| [hammer_json_query](tools/hammer_json_query/README.md) | Select JSON by JSON Pointer; return value or object keys. | off | 3 s |
-| [hammer_markdown_convert](tools/hammer_markdown_convert/README.md) | Convert Markdown to HTML with tables and fenced code blocks. | off | 3 s |
-| [hammer_pdf_extract](tools/hammer_pdf_extract/README.md) | Extract a bounded PDF page text layer from base64 bytes; no OCR. | off | 3 s |
-| [hammer_regex_search](tools/hammer_regex_search/README.md) | Find regex matches in supplied text with line numbers. | off | 3 s |
-| [hammer_spotify_albums](tools/hammer_spotify_albums/README.md) | Read one Spotify album or a page of its tracks. | api.spotify.com | 15 s |
-| [hammer_spotify_devices](tools/hammer_spotify_devices/README.md) | List available Spotify playback devices. | api.spotify.com | 15 s |
-| [hammer_spotify_library](tools/hammer_spotify_library/README.md) | Read one page of your saved Spotify tracks. | api.spotify.com | 15 s |
-| [hammer_spotify_playback](tools/hammer_spotify_playback/README.md) | Read Spotify playback state or control active playback. | api.spotify.com | 15 s |
-| [hammer_spotify_playlists](tools/hammer_spotify_playlists/README.md) | List your Spotify playlists or read playlist items. | api.spotify.com | 15 s |
-| [hammer_spotify_queue](tools/hammer_spotify_queue/README.md) | Read the Spotify queue or append one track or episode. | api.spotify.com | 15 s |
-| [hammer_spotify_search](tools/hammer_spotify_search/README.md) | Search Spotify for tracks, artists or albums. | api.spotify.com | 15 s |
-| [hammer_text_patch](tools/hammer_text_patch/README.md) | Replace one exact text match and preview a unified diff. | off | 3 s |
-| [hammer_units](tools/hammer_units/README.md) | Convert length, mass, duration, or temperature units. | off | 3 s |
-| [hammer_xlsx_read](tools/hammer_xlsx_read/README.md) | Read cached cell values from a base64 XLSX worksheet; never evaluate formulas. | off | 3 s |
-| [hammer_xml_query](tools/hammer_xml_query/README.md) | Select XML elements by a simple ElementTree path; reject DTDs and entities. | off | 3 s |
-| [hammer_yaml_query](tools/hammer_yaml_query/README.md) | Select a YAML value by JSON Pointer; reject aliases and custom tags. | off | 3 s |
-| [hammer_zip_inspect](tools/hammer_zip_inspect/README.md) | List ZIP metadata from base64 bytes without extracting files. | off | 3 s |
+| [calculate](tools/calculate/README.md) | Evaluate bounded arithmetic: + - * / // % and parentheses. | off | 3 s |
+| [code_outline](tools/code_outline/README.md) | List Python classes, functions, arguments and docstrings without executing source. | off | 3 s |
+| [csv_query](tools/csv_query/README.md) | Filter CSV rows by exact column value; return JSON rows. | off | 3 s |
+| [datetime](tools/datetime/README.md) | Shift an offset-aware ISO timestamp and convert its UTC offset. | off | 3 s |
+| [discord](tools/discord/README.md) | Read Discord channel messages or send a text message. | discord.com | 15 s |
+| [discord_admin](tools/discord_admin/README.md) | List Discord guild channels or roles without changing them. | discord.com | 15 s |
+| [docx_extract](tools/docx_extract/README.md) | Extract plain paragraphs from base64 DOCX without external relationships. | off | 3 s |
+| [ha_call_service](tools/ha_call_service/README.md) | Call one Home Assistant service with explicit JSON data. | homeassistant.example.invalid | 15 s |
+| [ha_get_state](tools/ha_get_state/README.md) | Read the current Home Assistant state of one entity. | homeassistant.example.invalid | 15 s |
+| [ha_list_entities](tools/ha_list_entities/README.md) | List Home Assistant entities, optionally filtered by domain. | homeassistant.example.invalid | 15 s |
+| [ha_list_services](tools/ha_list_services/README.md) | List Home Assistant services, optionally filtered by domain. | homeassistant.example.invalid | 15 s |
+| [html_extract](tools/html_extract/README.md) | Extract readable text and safe links from supplied HTML. | off | 3 s |
+| [http_api](tools/http_api/README.md) | Call approved HTTPS JSON APIs with an explicit method and optional JSON body. | api.github.com | 15 s |
+| [json_query](tools/json_query/README.md) | Select JSON by JSON Pointer; return value or object keys. | off | 3 s |
+| [markdown_convert](tools/markdown_convert/README.md) | Convert Markdown to HTML with tables and fenced code blocks. | off | 3 s |
+| [pdf_extract](tools/pdf_extract/README.md) | Extract a bounded PDF page text layer from base64 bytes; no OCR. | off | 3 s |
+| [regex_search](tools/regex_search/README.md) | Find regex matches in supplied text with line numbers. | off | 3 s |
+| [spotify_albums](tools/spotify_albums/README.md) | Read one Spotify album or a page of its tracks. | api.spotify.com | 15 s |
+| [spotify_devices](tools/spotify_devices/README.md) | List available Spotify playback devices. | api.spotify.com | 15 s |
+| [spotify_library](tools/spotify_library/README.md) | Read one page of your saved Spotify tracks. | api.spotify.com | 15 s |
+| [spotify_playback](tools/spotify_playback/README.md) | Read Spotify playback state or control active playback. | api.spotify.com | 15 s |
+| [spotify_playlists](tools/spotify_playlists/README.md) | List your Spotify playlists or read playlist items. | api.spotify.com | 15 s |
+| [spotify_queue](tools/spotify_queue/README.md) | Read the Spotify queue or append one track or episode. | api.spotify.com | 15 s |
+| [spotify_search](tools/spotify_search/README.md) | Search Spotify for tracks, artists or albums. | api.spotify.com | 15 s |
+| [text_patch](tools/text_patch/README.md) | Replace one exact text match and preview a unified diff. | off | 3 s |
+| [units](tools/units/README.md) | Convert length, mass, duration, or temperature units. | off | 3 s |
+| [xlsx_read](tools/xlsx_read/README.md) | Read cached cell values from a base64 XLSX worksheet; never evaluate formulas. | off | 3 s |
+| [xml_query](tools/xml_query/README.md) | Select XML elements by a simple ElementTree path; reject DTDs and entities. | off | 3 s |
+| [yaml_query](tools/yaml_query/README.md) | Select a YAML value by JSON Pointer; reject aliases and custom tags. | off | 3 s |
+| [zip_inspect](tools/zip_inspect/README.md) | List ZIP metadata from base64 bytes without extracting files. | off | 3 s |
 
 ## Install and enable
 
@@ -71,7 +71,7 @@ from this repository, with a destination that does not already exist:
 
 ```sh
 mkdir -p ~/.invokr/toolbox
-cp -R tools/hammer_json_query ~/.invokr/toolbox/hammer_json_query
+cp -R tools/json_query ~/.invokr/toolbox/json_query
 ```
 
 Check the destination first; do not accidentally nest or overwrite an existing
@@ -79,7 +79,7 @@ installation. Install other tools the same way. Alternatively, set
 `INVOKR_TOOLBOX_DIR=/absolute/path/to/toolbox/tools` to load this kit directly;
 that selects this root instead of your existing toolbox root. Restart invokr,
 or use its toolbox discovery refresh through `tool_search`. The namespace is
-`hammer`; call names are the full `hammer_*` names in the table. Per-call approval
+`hammer`; call names are the names in the table. Per-call approval
 still applies. Remove an installed tool directory and restart to disable it.
 
 Required operator settings:
@@ -139,7 +139,7 @@ around these limits. Remote API state changes prompt only as their approval poli
 
 ## Add a tool
 
-1. Copy `template/` into `tools/hammer_<name>/`; never import shared runtime code.
+1. Copy `template/` into `tools/<name>/`; never import shared runtime code.
 2. Rename the manifest/example; use short descriptions and at most three required primitive parameters.
 3. Implement `run(args)` with bounded data. Keep envelope validation and output/deadline guards.
 4. For network tools, copy `network.py.example` and optionally `auth.py.example` into the tool itself, declare exact hosts and select a 15- or 60-second limit. Keep environment isolation.

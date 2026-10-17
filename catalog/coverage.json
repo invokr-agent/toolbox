@@ -194,7 +194,7 @@
   {
     "name": "discord",
     "status": "adapter",
-    "target": "hammer_discord",
+    "target": "discord",
     "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
     "source": "tools/discord_tool.py",
     "line": 1100
@@ -202,7 +202,7 @@
   {
     "name": "discord_admin",
     "status": "adapter",
-    "target": "hammer_discord_admin",
+    "target": "discord_admin",
     "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
     "source": "tools/discord_tool.py",
     "line": 1109
@@ -266,7 +266,7 @@
   {
     "name": "ha_call_service",
     "status": "adapter",
-    "target": "hammer_ha_call_service",
+    "target": "ha_call_service",
     "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
     "source": "tools/homeassistant_tool.py",
     "line": 507
@@ -274,7 +274,7 @@
   {
     "name": "ha_get_state",
     "status": "adapter",
-    "target": "hammer_ha_get_state",
+    "target": "ha_get_state",
     "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
     "source": "tools/homeassistant_tool.py",
     "line": 489
@@ -282,7 +282,7 @@
   {
     "name": "ha_list_entities",
     "status": "adapter",
-    "target": "hammer_ha_list_entities",
+    "target": "ha_list_entities",
     "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
     "source": "tools/homeassistant_tool.py",
     "line": 480
@@ -290,7 +290,7 @@
   {
     "name": "ha_list_services",
     "status": "adapter",
-    "target": "hammer_ha_list_services",
+    "target": "ha_list_services",
     "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
     "source": "tools/homeassistant_tool.py",
     "line": 498
@@ -562,7 +562,7 @@
   {
     "name": "spotify_albums",
     "status": "adapter",
-    "target": "hammer_spotify_albums",
+    "target": "spotify_albums",
     "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
     "source": "toolsets.py",
     "line": 379
@@ -570,7 +570,7 @@
   {
     "name": "spotify_devices",
     "status": "adapter",
-    "target": "hammer_spotify_devices",
+    "target": "spotify_devices",
     "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
     "source": "toolsets.py",
     "line": 378
@@ -578,7 +578,7 @@
   {
     "name": "spotify_library",
     "status": "adapter",
-    "target": "hammer_spotify_library",
+    "target": "spotify_library",
     "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
     "source": "toolsets.py",
     "line": 379
@@ -586,7 +586,7 @@
   {
     "name": "spotify_playback",
     "status": "adapter",
-    "target": "hammer_spotify_playback",
+    "target": "spotify_playback",
     "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
     "source": "toolsets.py",
     "line": 378
@@ -594,7 +594,7 @@
   {
     "name": "spotify_playlists",
     "status": "adapter",
-    "target": "hammer_spotify_playlists",
+    "target": "spotify_playlists",
     "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
     "source": "toolsets.py",
     "line": 379
@@ -602,7 +602,7 @@
   {
     "name": "spotify_queue",
     "status": "adapter",
-    "target": "hammer_spotify_queue",
+    "target": "spotify_queue",
     "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
     "source": "toolsets.py",
     "line": 378
@@ -610,7 +610,7 @@
   {
     "name": "spotify_search",
     "status": "adapter",
-    "target": "hammer_spotify_search",
+    "target": "spotify_search",
     "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
     "source": "toolsets.py",
     "line": 378

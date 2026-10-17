@@ -70,7 +70,7 @@ def validate_tool(directory, template=False):
         raise ValueError('network tools require an explicit hostname allowlist')
     if spec['limits']['timeout_seconds'] not in ((15, 60) if network else (3,)):
         raise ValueError('timeout must match network/offline profile')
-    if spec['name'] != ('hammer_template' if template else directory.name):
+    if spec['name'] != ('template' if template else directory.name):
         raise ValueError(f'{directory}: name/directory mismatch')
     parameters = spec['parameters']
     if set(parameters['required']) - parameters['properties'].keys():

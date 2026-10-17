@@ -1,0 +1,57 @@
+{
+  "name": "ha_list_entities",
+  "description": "List Home Assistant entities, optionally filtered by domain.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"ha_list_entities\", \"arguments\": {\"domain\": \"light\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "description": "Domain or empty for all.",
+        "maxLength": 128
+      },
+      "limit": {
+        "type": "integer",
+        "description": "Maximum entities.",
+        "default": 20,
+        "minimum": 1,
+        "maximum": 100
+      },
+      "offset": {
+        "type": "integer",
+        "description": "Filtered result offset.",
+        "default": 0,
+        "minimum": 0,
+        "maximum": 10000
+      }
+    },
+    "required": [
+      "domain"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask_once"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": true,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 15,
+    "memory_mb": 128,
+    "output_kb": 32
+  },
+  "network": {
+    "allow_hosts": [
+      "homeassistant.example.invalid"
+    ]
+  }
+}

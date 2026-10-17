@@ -1,0 +1,52 @@
+{
+  "name": "datetime",
+  "description": "Shift an offset-aware ISO timestamp and convert its UTC offset.",
+  "namespace": "hammer",
+  "example": "{\"name\":\"datetime\",\"arguments\":{\"timestamp\":\"2026-10-15T12:00:00+02:00\",\"add_seconds\":3600}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "timestamp": {
+        "type": "string",
+        "description": "ISO 8601 timestamp with Z or explicit UTC offset.",
+        "maxLength": 32000
+      },
+      "add_seconds": {
+        "type": "integer",
+        "description": "Elapsed seconds to add.",
+        "default": 0,
+        "minimum": -315360000,
+        "maximum": 315360000
+      },
+      "offset_minutes": {
+        "type": "integer",
+        "description": "Target UTC offset in minutes.",
+        "default": 0,
+        "minimum": -840,
+        "maximum": 840
+      }
+    },
+    "required": [
+      "timestamp"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": false,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 3,
+    "memory_mb": 128,
+    "output_kb": 32
+  }
+}
