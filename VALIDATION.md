@@ -2,14 +2,14 @@
 
 ## Expanded stack: 2026-10-16
 
-PASS: all 42 independent Python tool suites, template suite, seven validator
+PASS: all 35 independent Python tool suites, template suite, seven validator
 tests and `make lint-ci`. Python 3.14.7. The validator also checks complete
 94-entry catalog coverage and bounded network timeout profiles.
 
 PASS: external Go overlay with Go 1.26.3 against invokr
-`3ffb0f91204d461706f79b7e448f51d5c4c9f24e`: all 42 manifests/examples loaded;
+`3ffb0f91204d461706f79b7e448f51d5c4c9f24e`: all 35 manifests/examples loaded;
 13 stdlib offline producers checked through both decoders and real sandbox
-invocation. The 26 network tools and three dependency tools receive loader-only
+invocation. The 19 network tools and three dependency tools receive loader-only
 checks. The sibling containment probe passes. No live provider calls or installs.
 
 Provider tests mock transport and use fake tokens. They cover auth scope,

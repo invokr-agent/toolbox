@@ -1,6 +1,6 @@
 # Hammer — isolated Python tools for invokr
 
-The complete branch stack provides 42 independent tools. `main` preserves the
+The complete branch stack provides 35 independent tools. `main` preserves the
 initial nine-tool release; use the final stack branch for the complete kit.
 [Full Hermes disposition](catalog/README.md) accounts for all 94 named source
 tools, including native replacements and runtime/gateway blockers. An adapter
@@ -41,7 +41,6 @@ defaults for optional fields, unknown arguments rejected.
 | [hammer_ha_list_services](tools/hammer_ha_list_services/README.md) | List Home Assistant services, optionally filtered by domain. | homeassistant.example.invalid | 15 s |
 | [hammer_html_extract](tools/hammer_html_extract/README.md) | Extract readable text and safe links from supplied HTML. | off | 3 s |
 | [hammer_http_api](tools/hammer_http_api/README.md) | Call approved HTTPS JSON APIs with an explicit method and optional JSON body. | api.github.com | 15 s |
-| [hammer_image_generate](tools/hammer_image_generate/README.md) | Generate one image with xAI and return its URL. | api.x.ai | 60 s |
 | [hammer_json_query](tools/hammer_json_query/README.md) | Select JSON by JSON Pointer; return value or object keys. | off | 3 s |
 | [hammer_markdown_convert](tools/hammer_markdown_convert/README.md) | Convert Markdown to HTML with tables and fenced code blocks. | off | 3 s |
 | [hammer_pdf_extract](tools/hammer_pdf_extract/README.md) | Extract a bounded PDF page text layer from base64 bytes; no OCR. | off | 3 s |
@@ -55,12 +54,6 @@ defaults for optional fields, unknown arguments rejected.
 | [hammer_spotify_search](tools/hammer_spotify_search/README.md) | Search Spotify for tracks, artists or albums. | api.spotify.com | 15 s |
 | [hammer_text_patch](tools/hammer_text_patch/README.md) | Replace one exact text match and preview a unified diff. | off | 3 s |
 | [hammer_units](tools/hammer_units/README.md) | Convert length, mass, duration, or temperature units. | off | 3 s |
-| [hammer_video_analyze](tools/hammer_video_analyze/README.md) | Ask an xAI model a question about a public video URL. | api.x.ai | 60 s |
-| [hammer_video_generate](tools/hammer_video_generate/README.md) | Submit or poll an xAI video generation job. | api.x.ai | 15 s |
-| [hammer_vision_analyze](tools/hammer_vision_analyze/README.md) | Ask an xAI model a question about a public image URL. | api.x.ai | 60 s |
-| [hammer_x_search](tools/hammer_x_search/README.md) | Search public X posts using the xAI search tool. | api.x.ai | 60 s |
-| [hammer_xai_video_edit](tools/hammer_xai_video_edit/README.md) | Submit or poll an xAI video edit job. | api.x.ai | 15 s |
-| [hammer_xai_video_extend](tools/hammer_xai_video_extend/README.md) | Submit or poll an xAI video extension job. | api.x.ai | 15 s |
 | [hammer_xlsx_read](tools/hammer_xlsx_read/README.md) | Read cached cell values from a base64 XLSX worksheet; never evaluate formulas. | off | 3 s |
 | [hammer_xml_query](tools/hammer_xml_query/README.md) | Select XML elements by a simple ElementTree path; reject DTDs and entities. | off | 3 s |
 | [hammer_yaml_query](tools/hammer_yaml_query/README.md) | Select a YAML value by JSON Pointer; reject aliases and custom tags. | off | 3 s |

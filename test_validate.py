@@ -19,7 +19,7 @@ class ValidatorTests(unittest.TestCase):
         self.assertEqual(len(names), len(set(names)))
         self.assertEqual(set(names), {entry['name'] for entry in inventory})
         for entry in decisions:
-            self.assertIn(entry['status'], {'adapter', 'native', 'runtime', 'gateway', 'artifact'})
+            self.assertIn(entry['status'], {'adapter', 'native', 'runtime', 'gateway', 'artifact', 'excluded'})
             self.assertTrue(entry['reason'])
             self.assertTrue(entry['source'])
             self.assertTrue(entry['target'])

@@ -72,16 +72,11 @@ portable. Dynamic provider registrations are outside that static inventory.
 | `tools/homeassistant_tool.py:354-469` | Entity state, domain filtering, service discovery/calls. Explicit public HTTPS proxy only; no LAN discovery or inherited configuration. |
 | `tools/discord_tool.py` | Action enums, channel/guild IDs, message reads and guild metadata. Narrow bot adapter; message sends disable mentions; no destructive admin actions. |
 | `toolsets.py:378-379` | Seven Spotify capability names. Core checkout has no corresponding provider schemas; original narrow schemas use Spotify's official API, including current playlist /items endpoint. |
-| `tools/vision_tools.py` | Image/video URL plus question. Direct provider completion instead of local download, native model-context attachment or frame extraction. |
-| `tools/image_generation_tool.py` | Prompt-based image creation. Single direct-provider URL result, no file delivery or local image edit. |
-| `tools/video_generation_tool.py`, `tools/xai_video_tools.py` | Prompt/model and source video arguments. Async submit/poll preserves subprocess bounds; no sleeps, shared jobs or file downloads. |
-| `tools/x_search_tool.py:324-349` | Responses input, x_search tool and store=false. Direct bounded response, no account posting. |
 | `tools/flux3_video_tool.py` | Examined gateway auth/upload/poll/delivery contracts; rejected borrowing Hermes bearer or faking gateway policy. |
 | `tools/kanban_tools.py`, `tools/project_tools.py`, browser/UI/gateway files in inventory | Registration/schema capability audit; no shared mutable runtime or desktop authority copied into stateless tools. |
 
 Primary API references are linked in each adapter README: Home Assistant REST,
-Feishu docs/drive APIs, Discord message/guild resources, Spotify Web API, and xAI
-inference API. Dependencies use official PyPI metadata and wheel SHA-256 values:
+Feishu docs/drive APIs, Discord message/guild resources, and Spotify Web API. Dependencies use official PyPI metadata and wheel SHA-256 values:
 PyYAML 6.0.3, Markdown 3.10.3 and pypdf 6.19.0. Per-tool READMEs record exact
 parser scope and limitations. No third-party blog recipes or executable Hermes
 code were copied. Only the original six files above were compared byte-for-byte

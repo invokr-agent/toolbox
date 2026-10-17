@@ -297,9 +297,9 @@
   },
   {
     "name": "image_generate",
-    "status": "adapter",
-    "target": "hammer_image_generate",
-    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
     "source": "tools/image_generation_tool.py",
     "line": 1983
   },
@@ -641,25 +641,25 @@
   },
   {
     "name": "video_analyze",
-    "status": "adapter",
-    "target": "hammer_video_analyze",
-    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
     "source": "tools/vision_tools.py",
     "line": 2216
   },
   {
     "name": "video_generate",
-    "status": "adapter",
-    "target": "hammer_video_generate",
-    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
     "source": "tools/video_generation_tool.py",
     "line": 595
   },
   {
     "name": "vision_analyze",
-    "status": "adapter",
-    "target": "hammer_vision_analyze",
-    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
     "source": "tools/vision_tools.py",
     "line": 1798
   },
@@ -689,25 +689,25 @@
   },
   {
     "name": "x_search",
-    "status": "adapter",
-    "target": "hammer_x_search",
-    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
     "source": "tools/x_search_tool.py",
     "line": 543
   },
   {
     "name": "xai_video_edit",
-    "status": "adapter",
-    "target": "hammer_xai_video_edit",
-    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
     "source": "tools/xai_video_tools.py",
     "line": 189
   },
   {
     "name": "xai_video_extend",
-    "status": "adapter",
-    "target": "hammer_xai_video_extend",
-    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
     "source": "tools/xai_video_tools.py",
     "line": 200
   },
