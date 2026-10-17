@@ -1,0 +1,53 @@
+{
+  "name": "hammer_discord_admin",
+  "description": "List Discord guild channels or roles without changing them.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"hammer_discord_admin\", \"arguments\": {\"action\": \"channels\", \"guild_id\": \"123\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string",
+        "description": "Guild metadata to read.",
+        "maxLength": 32000,
+        "enum": [
+          "channels",
+          "roles"
+        ]
+      },
+      "guild_id": {
+        "type": "string",
+        "description": "Discord guild ID.",
+        "maxLength": 20
+      }
+    },
+    "required": [
+      "action",
+      "guild_id"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask_once"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": true,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 15,
+    "memory_mb": 128,
+    "output_kb": 32
+  },
+  "network": {
+    "allow_hosts": [
+      "discord.com"
+    ]
+  }
+}
