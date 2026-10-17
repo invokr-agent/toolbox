@@ -1,4 +1,4 @@
-# hammer_template
+# template
 
 Return supplied text.
 
@@ -9,7 +9,7 @@ Copy this directory and replace the operation.
 Pass this call on stdin to `python3 main.py` (Python 3.11+ on Linux):
 
 ```json
-{"name":"hammer_template","arguments":{"text":"hello"}}
+{"name":"template","arguments":{"text":"hello"}}
 ```
 
 Success: `{"result":"<JSON string containing a data object>"}`.

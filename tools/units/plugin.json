@@ -1,0 +1,89 @@
+{
+  "name": "units",
+  "description": "Convert length, mass, duration, or temperature units.",
+  "namespace": "hammer",
+  "example": "{\"name\":\"units\",\"arguments\":{\"value\":72,\"from_unit\":\"km\",\"to_unit\":\"m\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "value": {
+        "type": "number",
+        "description": "Finite amount.",
+        "minimum": -1e+100,
+        "maximum": 1e+100
+      },
+      "from_unit": {
+        "type": "string",
+        "description": "Source unit.",
+        "maxLength": 32000,
+        "enum": [
+          "m",
+          "km",
+          "cm",
+          "mm",
+          "in",
+          "ft",
+          "mi",
+          "kg",
+          "g",
+          "lb",
+          "s",
+          "min",
+          "h",
+          "day",
+          "C",
+          "F",
+          "K"
+        ]
+      },
+      "to_unit": {
+        "type": "string",
+        "description": "Target unit.",
+        "maxLength": 32000,
+        "enum": [
+          "m",
+          "km",
+          "cm",
+          "mm",
+          "in",
+          "ft",
+          "mi",
+          "kg",
+          "g",
+          "lb",
+          "s",
+          "min",
+          "h",
+          "day",
+          "C",
+          "F",
+          "K"
+        ]
+      }
+    },
+    "required": [
+      "value",
+      "from_unit",
+      "to_unit"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": false,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 3,
+    "memory_mb": 128,
+    "output_kb": 32
+  }
+}

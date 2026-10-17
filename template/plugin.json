@@ -1,8 +1,8 @@
 {
-  "name": "hammer_template",
+  "name": "template",
   "description": "Return supplied text.",
   "namespace": "hammer",
-  "example": "{\"name\":\"hammer_template\",\"arguments\":{\"text\":\"hello\"}}",
+  "example": "{\"name\":\"template\",\"arguments\":{\"text\":\"hello\"}}",
   "parameters": {
     "type": "object",
     "properties": {
