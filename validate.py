@@ -56,6 +56,8 @@ def validate_tool(directory, template=False):
     if directory.is_symlink():
         raise ValueError(f'{directory}: symlink directory forbidden')
     for file in directory.rglob('*'):
+        if '.venv' in file.relative_to(directory).parts[:-1]:
+            continue
         if file.is_symlink():
             raise ValueError(f'{file}: symlink forbidden')
     for name in ('plugin.json', 'main.py', 'requirements.txt', 'README.md', 'test_main.py'):
@@ -63,6 +65,11 @@ def validate_tool(directory, template=False):
             raise ValueError(f'{directory}: missing {name}')
     spec = json.loads((directory / 'plugin.json').read_text())
     check(spec, json.loads((ROOT / 'contracts/plugin.schema.json').read_text()))
+    network = spec['capabilities']['network']
+    if network != ('network' in spec):
+        raise ValueError('network tools require an explicit hostname allowlist')
+    if spec['limits']['timeout_seconds'] not in ((15, 60) if network else (3,)):
+        raise ValueError('timeout must match network/offline profile')
     if spec['name'] != ('hammer_template' if template else directory.name):
         raise ValueError(f'{directory}: name/directory mismatch')
     parameters = spec['parameters']
@@ -78,14 +85,34 @@ def validate_tool(directory, template=False):
     for prop in example_schema['properties'].values():
         prop.pop('default', None)
     check(example['arguments'], example_schema)
-    # This release is deliberately stdlib-only. A dependency addition requires a
-    # reviewed policy/lock change, not merely an exact-looking requirement line.
+    pins = []
     for line in (directory / 'requirements.txt').read_text().splitlines():
         line = line.strip()
         if line and not line.startswith('#'):
             if not re.fullmatch(r'[A-Za-z0-9_.-]+==[A-Za-z0-9_.+!-]+', line):
                 raise ValueError('requirements must be exact registry pins')
-            raise ValueError('stdlib-only kit: dependency needs reviewed hash lock policy')
+            pins.append(line)
+    modules = {}
+    if pins:
+        metadata = directory / 'dependencies.json'
+        lock = directory / 'requirements.lock'
+        if not metadata.is_file() or not lock.is_file():
+            raise ValueError('dependencies need an import map and complete SHA-256 lock')
+        modules = json.loads(metadata.read_text())
+        if not isinstance(modules, dict) or not all(isinstance(k, str) and v in pins for k, v in modules.items()):
+            raise ValueError('dependency import map must reference exact requirement pins')
+        locked = {}
+        for line in lock.read_text().splitlines():
+            if not line.strip() or line.startswith('#'):
+                continue
+            fields = line.split()
+            if len(fields) < 2 or any(not re.fullmatch(r'--hash=sha256:[0-9a-f]{64}', h) for h in fields[1:]):
+                raise ValueError('every locked artifact needs SHA-256 hashes')
+            if fields[0] in locked:
+                raise ValueError('duplicate lock entry')
+            locked[fields[0]] = fields[1:]
+        if set(locked) != set(pins):
+            raise ValueError('requirements must declare the complete locked dependency closure')
     for file in directory.glob('*.py'):
         tree = ast.parse(file.read_text(), filename=str(file))
         if file.name == 'test_main.py' and not any(
@@ -101,7 +128,7 @@ def validate_tool(directory, template=False):
                 names = [node.module or '']
             else:
                 continue
-            if any(name.split('.')[0] not in sys.stdlib_module_names for name in names):
+            if any(name.split('.')[0] not in sys.stdlib_module_names | modules.keys() for name in names):
                 raise ValueError(f'{file}: non-stdlib or cross-tool import')
     return spec
 
@@ -121,7 +148,8 @@ def main():
             raise ValueError('duplicate tool name')
         names.add(spec['name'])
         if not args.check_only:
-            subprocess.run([sys.executable, '-I', '-B', str(directory / 'test_main.py')],
+            python = directory / '.venv/bin/python'
+            subprocess.run([str(python) if python.exists() else sys.executable, '-I', '-B', str(directory / 'test_main.py')],
                            check=True, cwd=directory, timeout=40,
                            env={'PATH': os.defpath, 'PYTHONDONTWRITEBYTECODE': '1'})
         print('PASS', spec['name'], flush=True)

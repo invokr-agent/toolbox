@@ -1,0 +1,754 @@
+[
+  {
+    "name": "bfl_flux3_get_result",
+    "status": "gateway",
+    "target": "Nous managed tool gateway",
+    "reason": "Installed schema delegates authorization, upload, polling policy and delivery to Nous gateway. No standalone scoped gateway credential contract was supplied; do not inherit Hermes login or copy live policy as static text.",
+    "source": "tools/flux3_video_tool.py",
+    "line": 1229
+  },
+  {
+    "name": "bfl_flux3_image_to_video",
+    "status": "gateway",
+    "target": "Nous managed tool gateway",
+    "reason": "Installed schema delegates authorization, upload, polling policy and delivery to Nous gateway. No standalone scoped gateway credential contract was supplied; do not inherit Hermes login or copy live policy as static text.",
+    "source": "tools/flux3_video_tool.py",
+    "line": 1196
+  },
+  {
+    "name": "bfl_flux3_keyframes_to_video",
+    "status": "gateway",
+    "target": "Nous managed tool gateway",
+    "reason": "Installed schema delegates authorization, upload, polling policy and delivery to Nous gateway. No standalone scoped gateway credential contract was supplied; do not inherit Hermes login or copy live policy as static text.",
+    "source": "tools/flux3_video_tool.py",
+    "line": 1207
+  },
+  {
+    "name": "bfl_flux3_prompting_guide",
+    "status": "gateway",
+    "target": "Nous managed tool gateway",
+    "reason": "Installed schema delegates authorization, upload, polling policy and delivery to Nous gateway. No standalone scoped gateway credential contract was supplied; do not inherit Hermes login or copy live policy as static text.",
+    "source": "tools/flux3_video_tool.py",
+    "line": 1240
+  },
+  {
+    "name": "bfl_flux3_text_to_video",
+    "status": "gateway",
+    "target": "Nous managed tool gateway",
+    "reason": "Installed schema delegates authorization, upload, polling policy and delivery to Nous gateway. No standalone scoped gateway credential contract was supplied; do not inherit Hermes login or copy live policy as static text.",
+    "source": "tools/flux3_video_tool.py",
+    "line": 1185
+  },
+  {
+    "name": "bfl_flux3_video_continuation",
+    "status": "gateway",
+    "target": "Nous managed tool gateway",
+    "reason": "Installed schema delegates authorization, upload, polling policy and delivery to Nous gateway. No standalone scoped gateway credential contract was supplied; do not inherit Hermes login or copy live policy as static text.",
+    "source": "tools/flux3_video_tool.py",
+    "line": 1218
+  },
+  {
+    "name": "browser_back",
+    "status": "runtime",
+    "target": "invokr toolbox/browser_agent",
+    "reason": "Reuse the existing browser recipe for supported workflows. Full CDP, console, vision, dialog and shared-session parity needs a separately reviewed browser runtime; no duplicate browser service here.",
+    "source": "tools/browser_tool.py",
+    "line": 5343
+  },
+  {
+    "name": "browser_cdp",
+    "status": "runtime",
+    "target": "invokr toolbox/browser_agent",
+    "reason": "Reuse the existing browser recipe for supported workflows. Full CDP, console, vision, dialog and shared-session parity needs a separately reviewed browser runtime; no duplicate browser service here.",
+    "source": "tools/browser_cdp_tool.py",
+    "line": 670
+  },
+  {
+    "name": "browser_click",
+    "status": "runtime",
+    "target": "invokr toolbox/browser_agent",
+    "reason": "Reuse the existing browser recipe for supported workflows. Full CDP, console, vision, dialog and shared-session parity needs a separately reviewed browser runtime; no duplicate browser service here.",
+    "source": "tools/browser_tool.py",
+    "line": 5319
+  },
+  {
+    "name": "browser_console",
+    "status": "runtime",
+    "target": "invokr toolbox/browser_agent",
+    "reason": "Reuse the existing browser recipe for supported workflows. Full CDP, console, vision, dialog and shared-session parity needs a separately reviewed browser runtime; no duplicate browser service here.",
+    "source": "tools/browser_tool.py",
+    "line": 5376
+  },
+  {
+    "name": "browser_dialog",
+    "status": "runtime",
+    "target": "invokr toolbox/browser_agent",
+    "reason": "Reuse the existing browser recipe for supported workflows. Full CDP, console, vision, dialog and shared-session parity needs a separately reviewed browser runtime; no duplicate browser service here.",
+    "source": "tools/browser_dialog_tool.py",
+    "line": 136
+  },
+  {
+    "name": "browser_exec",
+    "status": "runtime",
+    "target": "invokr toolbox/browser_agent",
+    "reason": "Reuse the existing browser recipe for supported workflows. Full CDP, console, vision, dialog and shared-session parity needs a separately reviewed browser runtime; no duplicate browser service here.",
+    "source": "tools/browser_use_cli.py",
+    "line": 704
+  },
+  {
+    "name": "browser_get_images",
+    "status": "runtime",
+    "target": "invokr toolbox/browser_agent",
+    "reason": "Reuse the existing browser recipe for supported workflows. Full CDP, console, vision, dialog and shared-session parity needs a separately reviewed browser runtime; no duplicate browser service here.",
+    "source": "tools/browser_tool.py",
+    "line": 5360
+  },
+  {
+    "name": "browser_navigate",
+    "status": "runtime",
+    "target": "invokr toolbox/browser_agent",
+    "reason": "Reuse the existing browser recipe for supported workflows. Full CDP, console, vision, dialog and shared-session parity needs a separately reviewed browser runtime; no duplicate browser service here.",
+    "source": "tools/browser_tool.py",
+    "line": 5302
+  },
+  {
+    "name": "browser_press",
+    "status": "runtime",
+    "target": "invokr toolbox/browser_agent",
+    "reason": "Reuse the existing browser recipe for supported workflows. Full CDP, console, vision, dialog and shared-session parity needs a separately reviewed browser runtime; no duplicate browser service here.",
+    "source": "tools/browser_tool.py",
+    "line": 5351
+  },
+  {
+    "name": "browser_scroll",
+    "status": "runtime",
+    "target": "invokr toolbox/browser_agent",
+    "reason": "Reuse the existing browser recipe for supported workflows. Full CDP, console, vision, dialog and shared-session parity needs a separately reviewed browser runtime; no duplicate browser service here.",
+    "source": "tools/browser_tool.py",
+    "line": 5335
+  },
+  {
+    "name": "browser_snapshot",
+    "status": "runtime",
+    "target": "invokr toolbox/browser_agent",
+    "reason": "Reuse the existing browser recipe for supported workflows. Full CDP, console, vision, dialog and shared-session parity needs a separately reviewed browser runtime; no duplicate browser service here.",
+    "source": "tools/browser_tool.py",
+    "line": 5310
+  },
+  {
+    "name": "browser_type",
+    "status": "runtime",
+    "target": "invokr toolbox/browser_agent",
+    "reason": "Reuse the existing browser recipe for supported workflows. Full CDP, console, vision, dialog and shared-session parity needs a separately reviewed browser runtime; no duplicate browser service here.",
+    "source": "tools/browser_tool.py",
+    "line": 5327
+  },
+  {
+    "name": "browser_vision",
+    "status": "runtime",
+    "target": "invokr toolbox/browser_agent",
+    "reason": "Reuse the existing browser recipe for supported workflows. Full CDP, console, vision, dialog and shared-session parity needs a separately reviewed browser runtime; no duplicate browser service here.",
+    "source": "tools/browser_tool.py",
+    "line": 5368
+  },
+  {
+    "name": "clarify",
+    "status": "runtime",
+    "target": "Hermes host UI/session",
+    "reason": "Requires desktop panes, previews, terminal/session ownership or user interaction callbacks. A stateless toolbox subprocess has no corresponding host API.",
+    "source": "tools/clarify_tool.py",
+    "line": 308
+  },
+  {
+    "name": "close_terminal",
+    "status": "runtime",
+    "target": "Hermes host UI/session",
+    "reason": "Requires desktop panes, previews, terminal/session ownership or user interaction callbacks. A stateless toolbox subprocess has no corresponding host API.",
+    "source": "tools/close_terminal_tool.py",
+    "line": 56
+  },
+  {
+    "name": "computer_use",
+    "status": "runtime",
+    "target": "desktop control",
+    "reason": "Needs display sockets, screenshots and host input authority absent from the declared read-only namespace profile.",
+    "source": "tools/computer_use_tool.py",
+    "line": 20
+  },
+  {
+    "name": "cronjob",
+    "status": "native",
+    "target": "schedule",
+    "reason": "Reuse invokr tools/system/schedule; runtime schemas differ from Hermes. Do not add a parallel Python owner.",
+    "source": "tools/cronjob_tools.py",
+    "line": 1654
+  },
+  {
+    "name": "delegate_task",
+    "status": "native",
+    "target": "delegate_task",
+    "reason": "Reuse invokr tools/system/delegate; runtime schemas differ from Hermes. Do not add a parallel Python owner.",
+    "source": "tools/delegate_tool.py",
+    "line": 4658
+  },
+  {
+    "name": "discord",
+    "status": "adapter",
+    "target": "hammer_discord",
+    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "source": "tools/discord_tool.py",
+    "line": 1100
+  },
+  {
+    "name": "discord_admin",
+    "status": "adapter",
+    "target": "hammer_discord_admin",
+    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "source": "tools/discord_tool.py",
+    "line": 1109
+  },
+  {
+    "name": "execute_code",
+    "status": "native",
+    "target": "code_interpreter",
+    "reason": "Reuse invokr tools/system/code_interpreter; runtime schemas differ from Hermes. Do not add a parallel Python owner.",
+    "source": "tools/code_execution_tool.py",
+    "line": 2197
+  },
+  {
+    "name": "feishu_doc_read",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
+    "source": "tools/feishu_doc_tool.py",
+    "line": 128
+  },
+  {
+    "name": "feishu_drive_add_comment",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
+    "source": "tools/feishu_drive_tool.py",
+    "line": 421
+  },
+  {
+    "name": "feishu_drive_list_comment_replies",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
+    "source": "tools/feishu_drive_tool.py",
+    "line": 397
+  },
+  {
+    "name": "feishu_drive_list_comments",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
+    "source": "tools/feishu_drive_tool.py",
+    "line": 385
+  },
+  {
+    "name": "feishu_drive_reply_comment",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
+    "source": "tools/feishu_drive_tool.py",
+    "line": 409
+  },
+  {
+    "name": "focus_pane",
+    "status": "runtime",
+    "target": "Hermes host UI/session",
+    "reason": "Requires desktop panes, previews, terminal/session ownership or user interaction callbacks. A stateless toolbox subprocess has no corresponding host API.",
+    "source": "tools/focus_pane_tool.py",
+    "line": 58
+  },
+  {
+    "name": "ha_call_service",
+    "status": "adapter",
+    "target": "hammer_ha_call_service",
+    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "source": "tools/homeassistant_tool.py",
+    "line": 507
+  },
+  {
+    "name": "ha_get_state",
+    "status": "adapter",
+    "target": "hammer_ha_get_state",
+    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "source": "tools/homeassistant_tool.py",
+    "line": 489
+  },
+  {
+    "name": "ha_list_entities",
+    "status": "adapter",
+    "target": "hammer_ha_list_entities",
+    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "source": "tools/homeassistant_tool.py",
+    "line": 480
+  },
+  {
+    "name": "ha_list_services",
+    "status": "adapter",
+    "target": "hammer_ha_list_services",
+    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "source": "tools/homeassistant_tool.py",
+    "line": 498
+  },
+  {
+    "name": "image_generate",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
+    "source": "tools/image_generation_tool.py",
+    "line": 1983
+  },
+  {
+    "name": "kanban_attach",
+    "status": "runtime",
+    "target": "Hermes kanban runtime",
+    "reason": "Needs the shared board database, task ownership and attachment lifecycle. Independent plugins cannot safely share mutable Hermes state; invokr runtime integration is required.",
+    "source": "tools/kanban_tools.py",
+    "line": 2428
+  },
+  {
+    "name": "kanban_attach_url",
+    "status": "runtime",
+    "target": "Hermes kanban runtime",
+    "reason": "Needs the shared board database, task ownership and attachment lifecycle. Independent plugins cannot safely share mutable Hermes state; invokr runtime integration is required.",
+    "source": "tools/kanban_tools.py",
+    "line": 2437
+  },
+  {
+    "name": "kanban_attachments",
+    "status": "runtime",
+    "target": "Hermes kanban runtime",
+    "reason": "Needs the shared board database, task ownership and attachment lifecycle. Independent plugins cannot safely share mutable Hermes state; invokr runtime integration is required.",
+    "source": "tools/kanban_tools.py",
+    "line": 2446
+  },
+  {
+    "name": "kanban_block",
+    "status": "runtime",
+    "target": "Hermes kanban runtime",
+    "reason": "Needs the shared board database, task ownership and attachment lifecycle. Independent plugins cannot safely share mutable Hermes state; invokr runtime integration is required.",
+    "source": "tools/kanban_tools.py",
+    "line": 2383
+  },
+  {
+    "name": "kanban_comment",
+    "status": "runtime",
+    "target": "Hermes kanban runtime",
+    "reason": "Needs the shared board database, task ownership and attachment lifecycle. Independent plugins cannot safely share mutable Hermes state; invokr runtime integration is required.",
+    "source": "tools/kanban_tools.py",
+    "line": 2419
+  },
+  {
+    "name": "kanban_complete",
+    "status": "runtime",
+    "target": "Hermes kanban runtime",
+    "reason": "Needs the shared board database, task ownership and attachment lifecycle. Independent plugins cannot safely share mutable Hermes state; invokr runtime integration is required.",
+    "source": "tools/kanban_tools.py",
+    "line": 2374
+  },
+  {
+    "name": "kanban_create",
+    "status": "runtime",
+    "target": "Hermes kanban runtime",
+    "reason": "Needs the shared board database, task ownership and attachment lifecycle. Independent plugins cannot safely share mutable Hermes state; invokr runtime integration is required.",
+    "source": "tools/kanban_tools.py",
+    "line": 2455
+  },
+  {
+    "name": "kanban_heartbeat",
+    "status": "runtime",
+    "target": "Hermes kanban runtime",
+    "reason": "Needs the shared board database, task ownership and attachment lifecycle. Independent plugins cannot safely share mutable Hermes state; invokr runtime integration is required.",
+    "source": "tools/kanban_tools.py",
+    "line": 2410
+  },
+  {
+    "name": "kanban_link",
+    "status": "runtime",
+    "target": "Hermes kanban runtime",
+    "reason": "Needs the shared board database, task ownership and attachment lifecycle. Independent plugins cannot safely share mutable Hermes state; invokr runtime integration is required.",
+    "source": "tools/kanban_tools.py",
+    "line": 2473
+  },
+  {
+    "name": "kanban_list",
+    "status": "runtime",
+    "target": "Hermes kanban runtime",
+    "reason": "Needs the shared board database, task ownership and attachment lifecycle. Independent plugins cannot safely share mutable Hermes state; invokr runtime integration is required.",
+    "source": "tools/kanban_tools.py",
+    "line": 2365
+  },
+  {
+    "name": "kanban_request_changes",
+    "status": "runtime",
+    "target": "Hermes kanban runtime",
+    "reason": "Needs the shared board database, task ownership and attachment lifecycle. Independent plugins cannot safely share mutable Hermes state; invokr runtime integration is required.",
+    "source": "tools/kanban_tools.py",
+    "line": 2401
+  },
+  {
+    "name": "kanban_request_review",
+    "status": "runtime",
+    "target": "Hermes kanban runtime",
+    "reason": "Needs the shared board database, task ownership and attachment lifecycle. Independent plugins cannot safely share mutable Hermes state; invokr runtime integration is required.",
+    "source": "tools/kanban_tools.py",
+    "line": 2392
+  },
+  {
+    "name": "kanban_show",
+    "status": "runtime",
+    "target": "Hermes kanban runtime",
+    "reason": "Needs the shared board database, task ownership and attachment lifecycle. Independent plugins cannot safely share mutable Hermes state; invokr runtime integration is required.",
+    "source": "tools/kanban_tools.py",
+    "line": 2356
+  },
+  {
+    "name": "kanban_unblock",
+    "status": "runtime",
+    "target": "Hermes kanban runtime",
+    "reason": "Needs the shared board database, task ownership and attachment lifecycle. Independent plugins cannot safely share mutable Hermes state; invokr runtime integration is required.",
+    "source": "tools/kanban_tools.py",
+    "line": 2464
+  },
+  {
+    "name": "memory",
+    "status": "native",
+    "target": "memory/recall",
+    "reason": "Reuse invokr tools/system/memory; runtime schemas differ from Hermes. Do not add a parallel Python owner.",
+    "source": "tools/memory_tool.py",
+    "line": 1231
+  },
+  {
+    "name": "open_preview",
+    "status": "runtime",
+    "target": "Hermes host UI/session",
+    "reason": "Requires desktop panes, previews, terminal/session ownership or user interaction callbacks. A stateless toolbox subprocess has no corresponding host API.",
+    "source": "tools/open_preview_tool.py",
+    "line": 86
+  },
+  {
+    "name": "patch",
+    "status": "native",
+    "target": "edit/apply_patch",
+    "reason": "Reuse invokr tools/system/edit_file/edit_file.go; runtime schemas differ from Hermes. Do not add a parallel Python owner.",
+    "source": "tools/file_tools.py",
+    "line": 2748
+  },
+  {
+    "name": "process",
+    "status": "native",
+    "target": "process",
+    "reason": "Reuse invokr tools/system/shell; runtime schemas differ from Hermes. Do not add a parallel Python owner.",
+    "source": "tools/process_registry.py",
+    "line": 2999
+  },
+  {
+    "name": "project_create",
+    "status": "runtime",
+    "target": "Hermes host UI/session",
+    "reason": "Requires desktop panes, previews, terminal/session ownership or user interaction callbacks. A stateless toolbox subprocess has no corresponding host API.",
+    "source": "tools/project_tools.py",
+    "line": 145
+  },
+  {
+    "name": "project_list",
+    "status": "runtime",
+    "target": "Hermes host UI/session",
+    "reason": "Requires desktop panes, previews, terminal/session ownership or user interaction callbacks. A stateless toolbox subprocess has no corresponding host API.",
+    "source": "tools/project_tools.py",
+    "line": 134
+  },
+  {
+    "name": "project_switch",
+    "status": "runtime",
+    "target": "Hermes host UI/session",
+    "reason": "Requires desktop panes, previews, terminal/session ownership or user interaction callbacks. A stateless toolbox subprocess has no corresponding host API.",
+    "source": "tools/project_tools.py",
+    "line": 170
+  },
+  {
+    "name": "react_to_message",
+    "status": "gateway",
+    "target": "Hermes messaging gateway",
+    "reason": "Requires platform session identity, current-chat routing and gateway credential ownership. No isolated invokr host API exposes those contexts.",
+    "source": "tools/react_to_message_tool.py",
+    "line": 155
+  },
+  {
+    "name": "read_file",
+    "status": "native",
+    "target": "read",
+    "reason": "Reuse invokr tools/system/read_file/read_file.go; runtime schemas differ from Hermes. Do not add a parallel Python owner.",
+    "source": "tools/file_tools.py",
+    "line": 2746
+  },
+  {
+    "name": "read_preview",
+    "status": "runtime",
+    "target": "Hermes host UI/session",
+    "reason": "Requires desktop panes, previews, terminal/session ownership or user interaction callbacks. A stateless toolbox subprocess has no corresponding host API.",
+    "source": "tools/read_preview_tool.py",
+    "line": 84
+  },
+  {
+    "name": "read_terminal",
+    "status": "runtime",
+    "target": "Hermes host UI/session",
+    "reason": "Requires desktop panes, previews, terminal/session ownership or user interaction callbacks. A stateless toolbox subprocess has no corresponding host API.",
+    "source": "tools/read_terminal_tool.py",
+    "line": 79
+  },
+  {
+    "name": "read_window_below",
+    "status": "runtime",
+    "target": "Hermes host UI/session",
+    "reason": "Requires desktop panes, previews, terminal/session ownership or user interaction callbacks. A stateless toolbox subprocess has no corresponding host API.",
+    "source": "tools/read_window_tool.py",
+    "line": 65
+  },
+  {
+    "name": "search_files",
+    "status": "native",
+    "target": "file_search",
+    "reason": "Reuse invokr tools/system/file_search/file_search.go; runtime schemas differ from Hermes. Do not add a parallel Python owner.",
+    "source": "tools/file_tools.py",
+    "line": 2749
+  },
+  {
+    "name": "session_search",
+    "status": "native",
+    "target": "session_search",
+    "reason": "Reuse invokr tools/system/session_search; runtime schemas differ from Hermes. Do not add a parallel Python owner.",
+    "source": "tools/session_search_tool.py",
+    "line": 1143
+  },
+  {
+    "name": "setup_mcp",
+    "status": "native",
+    "target": "operator MCP configuration",
+    "reason": "Reuse invokr tools/system/mcp; runtime schemas differ from Hermes. Do not add a parallel Python owner.",
+    "source": "tools/setup_mcp_tool.py",
+    "line": 123
+  },
+  {
+    "name": "skill_manage",
+    "status": "runtime",
+    "target": "operator skill management",
+    "reason": "Mutates host skill directories and executable content; violates this kit's no-workspace-write boundary. Reading remains native load_skill.",
+    "source": "tools/skill_manager_tool.py",
+    "line": 1792
+  },
+  {
+    "name": "skill_view",
+    "status": "native",
+    "target": "load_skill",
+    "reason": "Reuse invokr tools/system/skill; runtime schemas differ from Hermes. Do not add a parallel Python owner.",
+    "source": "tools/skills_tool.py",
+    "line": 2086
+  },
+  {
+    "name": "skills_list",
+    "status": "native",
+    "target": "load_skill discovery",
+    "reason": "Reuse invokr tools/system/skill; runtime schemas differ from Hermes. Do not add a parallel Python owner.",
+    "source": "tools/skills_tool.py",
+    "line": 1923
+  },
+  {
+    "name": "spotify_albums",
+    "status": "adapter",
+    "target": "hammer_spotify_albums",
+    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "source": "toolsets.py",
+    "line": 379
+  },
+  {
+    "name": "spotify_devices",
+    "status": "adapter",
+    "target": "hammer_spotify_devices",
+    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "source": "toolsets.py",
+    "line": 378
+  },
+  {
+    "name": "spotify_library",
+    "status": "adapter",
+    "target": "hammer_spotify_library",
+    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "source": "toolsets.py",
+    "line": 379
+  },
+  {
+    "name": "spotify_playback",
+    "status": "adapter",
+    "target": "hammer_spotify_playback",
+    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "source": "toolsets.py",
+    "line": 378
+  },
+  {
+    "name": "spotify_playlists",
+    "status": "adapter",
+    "target": "hammer_spotify_playlists",
+    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "source": "toolsets.py",
+    "line": 379
+  },
+  {
+    "name": "spotify_queue",
+    "status": "adapter",
+    "target": "hammer_spotify_queue",
+    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "source": "toolsets.py",
+    "line": 378
+  },
+  {
+    "name": "spotify_search",
+    "status": "adapter",
+    "target": "hammer_spotify_search",
+    "reason": "Standalone bounded subset; exact supported actions and omitted Hermes features are in its README.",
+    "source": "toolsets.py",
+    "line": 378
+  },
+  {
+    "name": "terminal",
+    "status": "native",
+    "target": "shell",
+    "reason": "Reuse invokr tools/system/shell; runtime schemas differ from Hermes. Do not add a parallel Python owner.",
+    "source": "tools/terminal_tool.py",
+    "line": 3843
+  },
+  {
+    "name": "text_to_speech",
+    "status": "artifact",
+    "target": "audio artifact transport",
+    "reason": "Hermes returns audio files/delivery attachments. The target toolbox contract has neither a declared persistent scratch path nor a binary artifact delivery seam; base64 audio is not a useful 30 KB result substitute.",
+    "source": "tools/tts_tool.py",
+    "line": 4490
+  },
+  {
+    "name": "todo",
+    "status": "native",
+    "target": "todo",
+    "reason": "Reuse invokr tools/system/todo; runtime schemas differ from Hermes. Do not add a parallel Python owner.",
+    "source": "tools/todo_tool.py",
+    "line": 327
+  },
+  {
+    "name": "video_analyze",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
+    "source": "tools/vision_tools.py",
+    "line": 2216
+  },
+  {
+    "name": "video_generate",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
+    "source": "tools/video_generation_tool.py",
+    "line": 595
+  },
+  {
+    "name": "vision_analyze",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
+    "source": "tools/vision_tools.py",
+    "line": 1798
+  },
+  {
+    "name": "web_extract",
+    "status": "native",
+    "target": "web_fetch",
+    "reason": "Reuse invokr tools/system/web_fetch/web_fetch.go; runtime schemas differ from Hermes. Do not add a parallel Python owner.",
+    "source": "tools/web_tools.py",
+    "line": 1230
+  },
+  {
+    "name": "web_search",
+    "status": "native",
+    "target": "web_search",
+    "reason": "Reuse invokr tools/system/web_search/tool.go; runtime schemas differ from Hermes. Do not add a parallel Python owner.",
+    "source": "tools/web_tools.py",
+    "line": 1220
+  },
+  {
+    "name": "write_file",
+    "status": "native",
+    "target": "edit",
+    "reason": "Reuse invokr tools/system/edit_file/edit_file.go; runtime schemas differ from Hermes. Do not add a parallel Python owner.",
+    "source": "tools/file_tools.py",
+    "line": 2747
+  },
+  {
+    "name": "x_search",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
+    "source": "tools/x_search_tool.py",
+    "line": 543
+  },
+  {
+    "name": "xai_video_edit",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
+    "source": "tools/xai_video_tools.py",
+    "line": 189
+  },
+  {
+    "name": "xai_video_extend",
+    "status": "excluded",
+    "target": "none",
+    "reason": "Out of scope for this kit; no plugin is provided.",
+    "source": "tools/xai_video_tools.py",
+    "line": 200
+  },
+  {
+    "name": "yb_query_group_info",
+    "status": "gateway",
+    "target": "Hermes messaging gateway",
+    "reason": "Requires platform session identity, current-chat routing and gateway credential ownership. No isolated invokr host API exposes those contexts.",
+    "source": "tools/yuanbao_tools.py",
+    "line": 502
+  },
+  {
+    "name": "yb_query_group_members",
+    "status": "gateway",
+    "target": "Hermes messaging gateway",
+    "reason": "Requires platform session identity, current-chat routing and gateway credential ownership. No isolated invokr host API exposes those contexts.",
+    "source": "tools/yuanbao_tools.py",
+    "line": 528
+  },
+  {
+    "name": "yb_search_sticker",
+    "status": "gateway",
+    "target": "Hermes messaging gateway",
+    "reason": "Requires platform session identity, current-chat routing and gateway credential ownership. No isolated invokr host API exposes those contexts.",
+    "source": "tools/yuanbao_tools.py",
+    "line": 654
+  },
+  {
+    "name": "yb_send_dm",
+    "status": "gateway",
+    "target": "Hermes messaging gateway",
+    "reason": "Requires platform session identity, current-chat routing and gateway credential ownership. No isolated invokr host API exposes those contexts.",
+    "source": "tools/yuanbao_tools.py",
+    "line": 580
+  },
+  {
+    "name": "yb_send_sticker",
+    "status": "gateway",
+    "target": "Hermes messaging gateway",
+    "reason": "Requires platform session identity, current-chat routing and gateway credential ownership. No isolated invokr host API exposes those contexts.",
+    "source": "tools/yuanbao_tools.py",
+    "line": 691
+  }
+]

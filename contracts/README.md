@@ -1,5 +1,18 @@
 # Contract source and scope
 
+Expansion adds a second manifest profile: explicit `network.allow_hosts`,
+`capabilities.network: true`, 15-second deadline (60 seconds for bounded synchronous inference), no workspace access. Missing
+allowlists and inconsistent network declarations fail validation. Network tests
+mock DNS, sockets, TLS and HTTP; the Go overlay loads those manifests without
+contacting providers. Offline tools retain the original 3-second profile.
+
+Dependency-bearing tools must include exact full-closure requirements,
+`requirements.lock` with SHA-256 wheel hashes, and `dependencies.json` mapping
+allowed import modules to pins. Tests never install anything: use a preprepared
+per-tool `.venv`, or an interpreter already carrying the exact versions checked
+by that tool's tests. The Go overlay validates these manifests without invoking
+the install path. Its sandbox execution checks remain for stdlib-only tools.
+
 Invokr revision: `3ffb0f91204d461706f79b7e448f51d5c4c9f24e`.
 Repository: `https://github.com/antonikliment/invokr-pre-release`.
 
@@ -10,19 +23,13 @@ claim that invokr ships this JSON Schema. It deliberately excludes unsupported
 fields and permissions. Invokr's own argument validator is shallow: Hammer also
 validates types, enum choices, numeric ranges, unknown keys and sizes in Python.
 
-The schema only uses the subset implemented by `validate.check`; unknown schema
-keywords fail. Parameter schemas are flat primitive properties. The dependency
-policy is stricter than upstream: zero external packages. Thus every declared
-dependency is pinned vacuously, and there are no artifact hashes to fabricate.
-
-If external dependencies become necessary, follow
-`docs/agents/adr/0005-python-toolbox-supply-chain.md`: exact direct registry pins,
-complete wheel-only resolved graph, approved artifact hosts, release cooldown,
-explicit approval, SHA-256 lock, verified wheel cache and offline hash-checked
-installation. The runtime generates `requirements.lock`; requirement lines
-with pip options/URLs/VCS/path references are not an alternative. Tests must
-never trigger online installation. Change the validator policy and add offline
-fixtures deliberately before introducing any dependency.
+The schema uses only the subset implemented by `validate.check`; unknown schema
+keywords fail. Parameter schemas are flat primitive properties. Dependency-free
+tools have comment-only requirements. External packages require exact pins,
+the full resolved closure, wheel hashes and an import allowlist. Provision them
+under the supply-chain ADR: approved artifact hosts, release cooldown, explicit
+operator approval, verified wheel cache and offline hash-checked installation.
+No URLs, VCS references or pip options are allowed in requirements.txt.
 
 `run_invokr.py` uses an external Go test overlay because existing upstream
 `browser_contract_test.go` hardcodes the browser path and the other tests create

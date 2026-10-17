@@ -1,0 +1,63 @@
+{
+  "name": "hammer_http_api",
+  "description": "Call approved HTTPS JSON APIs with an explicit method and optional JSON body.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"hammer_http_api\", \"arguments\": {\"url\": \"https://api.github.com/repos/NousResearch/hermes-agent\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "url": {
+        "type": "string",
+        "description": "Approved API URL.",
+        "maxLength": 32000
+      },
+      "method": {
+        "type": "string",
+        "description": "HTTP method.",
+        "maxLength": 32000,
+        "enum": [
+          "GET",
+          "HEAD",
+          "POST",
+          "PUT",
+          "PATCH",
+          "DELETE"
+        ],
+        "default": "GET"
+      },
+      "body": {
+        "type": "string",
+        "description": "JSON request body; empty for none.",
+        "maxLength": 32000,
+        "default": ""
+      }
+    },
+    "required": [
+      "url"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "always_ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": true,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 15,
+    "memory_mb": 128,
+    "output_kb": 32
+  },
+  "network": {
+    "allow_hosts": [
+      "api.github.com"
+    ]
+  }
+}

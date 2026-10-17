@@ -12,12 +12,39 @@ SPEC.loader.exec_module(validator)
 
 
 class ValidatorTests(unittest.TestCase):
+    def test_catalog_has_one_decision_for_every_source_tool(self):
+        inventory = json.loads((ROOT / 'catalog/hermes.json').read_text())['tools']
+        decisions = json.loads((ROOT / 'catalog/coverage.json').read_text())
+        names = [entry['name'] for entry in decisions]
+        self.assertEqual(len(names), len(set(names)))
+        self.assertEqual(set(names), {entry['name'] for entry in inventory})
+        for entry in decisions:
+            self.assertIn(entry['status'], {'adapter', 'native', 'runtime', 'gateway', 'artifact', 'excluded'})
+            self.assertTrue(entry['reason'])
+            self.assertTrue(entry['source'])
+            self.assertTrue(entry['target'])
+
+    def test_long_network_timeout_requires_network_permission(self):
+        with tempfile.TemporaryDirectory() as temp:
+            target = Path(temp) / 'template'
+            shutil.copytree(ROOT / 'template', target)
+            spec = json.loads((target / 'plugin.json').read_text())
+            spec['limits']['timeout_seconds'] = 60
+            (target / 'plugin.json').write_text(json.dumps(spec))
+            with self.assertRaises(ValueError):
+                validator.validate_tool(target, template=True)
+            spec['capabilities']['network'] = True
+            spec['network'] = {'allow_hosts': ['api.example.com']}
+            (target / 'plugin.json').write_text(json.dumps(spec))
+            validator.validate_tool(target, template=True)
+
     def test_template(self):
         validator.validate_tool(ROOT / 'template', template=True)
 
     def test_rejects_drift(self):
         mutations = [lambda s: s['capabilities'].update(network=True),
                      lambda s: s.update(daemon=0),
+                     lambda s: s.update(network={'allow_hosts': ['example.org']}),
                      lambda s: s['capabilities'].update(writes_workspace=True),
                      lambda s: s['limits'].update(timeout_seconds=90),
                      lambda s: s.update(daemon=True),
@@ -62,6 +89,21 @@ class ValidatorTests(unittest.TestCase):
                 validator.validate_tool(target, template=True)
         with self.assertRaises(ValueError):
             validator.check('x', {'oneOf': []})
+
+    def test_dependency_lock_requires_complete_hashes(self):
+        with tempfile.TemporaryDirectory() as temp:
+            target = Path(temp) / 'template'
+            shutil.copytree(ROOT / 'template', target)
+            (target / 'requirements.txt').write_text('PyYAML==6.0.3\n')
+            (target / 'dependencies.json').write_text('{"yaml":"PyYAML==6.0.3"}')
+            lock = target / 'requirements.lock'
+            for content in ['PyYAML==6.0.3', 'PyYAML==6.0.3 --hash=sha256:bad',
+                            'other==1 --hash=sha256:' + '0' * 64]:
+                lock.write_text(content)
+                with self.assertRaises(ValueError):
+                    validator.validate_tool(target, template=True)
+            lock.write_text('PyYAML==6.0.3 --hash=sha256:' + '0' * 64)
+            validator.validate_tool(target, template=True)
 
 
 if __name__ == '__main__':

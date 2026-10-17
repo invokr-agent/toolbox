@@ -1,0 +1,45 @@
+{
+  "name": "hammer_docx_extract",
+  "description": "Extract plain paragraphs from base64 DOCX without external relationships.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"hammer_docx_extract\", \"arguments\": {\"base64\": \"UEsDBBQAAAAIAPO+T10F0fQJcgAAAJcAAAARAAAAd29yZC9kb2N1bWVudC54bWxFzjEOwjAMBdCroB4AVwwMUcjMNUJi2kqxHdlBgdvTlIHlfVv+g313WdKLkNvpTYXN9du0tlYdgKUVKdpZKvJ+e4pSbPuqC3TRXFUSmm28UIHLPF+B4sZT8N09JH9G1oEOWrhjKeJhjEM9rIe/OvxfCV9QSwECFAMUAAAACADzvk9dBdH0CXIAAACXAAAAEQAAAAAAAAAAAAAAgAEAAAAAd29yZC9kb2N1bWVudC54bWxQSwUGAAAAAAEAAQA/AAAAoQAAAAAA\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "base64": {
+        "type": "string",
+        "description": "Base64 DOCX bytes.",
+        "maxLength": 32000
+      },
+      "limit": {
+        "type": "integer",
+        "description": "Maximum returned text characters.",
+        "default": 8000,
+        "minimum": 1,
+        "maximum": 12000
+      }
+    },
+    "required": [
+      "base64"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": false,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 3,
+    "memory_mb": 128,
+    "output_kb": 32
+  }
+}

@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"slices"
 	"strings"
 	"testing"
 	"time"
@@ -41,6 +42,19 @@ func TestHammerExternalContracts(t *testing.T) {
 			}
 			if err := core.ValidateArgs(p.Parameters, call.Arguments); err != nil {
 				t.Fatal(err)
+			}
+			if _, err := os.Stat(filepath.Join(dir, "dependencies.json")); err == nil {
+				// Dependency preparation is a separate explicitly online workflow.
+				// Python suites use previously prepared pinned environments offline.
+				return
+			}
+			if p.Metadata.Capabilities.Network {
+				// Network producers are tested with local mocks by their Python suite.
+				// Do not execute an example that could contact a live provider here.
+				if len(p.allowHosts) == 0 || !slices.Contains([]string{"ask_once", "always_ask"}, p.Metadata.Policy.Approval) {
+					t.Fatal("network manifest lacks allowlist/approval")
+				}
+				return
 			}
 			// Exercise the actual Python producer against both Go decoders offline.
 			python, err := exec.LookPath("python3")

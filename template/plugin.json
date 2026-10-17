@@ -21,7 +21,7 @@
     "tiers": [
       "code_execution"
     ],
-    "approval": "ask"
+    "approval": "ask_once"
   },
   "capabilities": {
     "reads_workspace": false,
