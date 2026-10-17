@@ -1,7 +1,6 @@
 # Hammer — isolated Python tools for invokr
 
-The complete branch stack provides 30 independent tools. `main` preserves the
-initial nine-tool release; use the final stack branch for the complete kit.
+The kit provides 30 independent tools.
 [Full Hermes disposition](catalog/README.md) accounts for all 94 named source
 tools, including native replacements and runtime/gateway blockers. An adapter
 implements only the operations documented in its own README, not every Hermes
@@ -13,7 +12,11 @@ mutable state. Dependencies are restricted to three hash-locked document parsers
 
 ## Tools and permissions
 
-All tools: approval `ask`, `code_execution` tier, one-shot execution, no workspace
+Approval: offline tools `ask`; network reads `ask_once` (Auto mode prompts until a
+standing grant covers the call); side-effecting tools `always_ask` (http_api,
+spotify_playback, spotify_queue, ha_call_service, discord). `ask_once`/`always_ask`
+need an invokr with those policies; older invokr treats them as `ask`. All tools:
+`code_execution` tier, one-shot execution, no workspace
 reads/writes and no persistent scratch. Limits: 128 MiB declared memory, 64 KiB
 input and network response, 30 KB serialized output. Offline tools use 3 seconds;
 network integrations 15 seconds; synchronous inference 60 seconds. No retries.
@@ -132,7 +135,7 @@ proxies or ambient auth. Invokr's DNS host scoping is **not a kernel egress
 firewall**: a malicious replacement network script could use literal-IP egress.
 The kit cannot promise complete containment against malicious code beyond the
 target runtime's actual boundaries. It does not grant workspace access to work
-around these limits. Remote API state changes remain subject to approval.
+around these limits. Remote API state changes prompt only as their approval policy allows: `ask` (and `ask_once` once granted) can run unattended in Auto mode.
 
 ## Add a tool
 

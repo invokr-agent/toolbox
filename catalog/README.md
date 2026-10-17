@@ -4,9 +4,9 @@ All 94 named entries from the pinned inventory are accounted for. This is not a 
 
 Status counts: {'adapter': 13, 'artifact': 1, 'excluded': 12, 'gateway': 12, 'native': 17, 'runtime': 39}.
 
-## Branches and ordering
+## Ordering
 
-`main` is the renamed original nine-tool release. `stack/00-foundation` holds shared code and documentation first. Each following branch adds exactly one complete tool directory. The stack orders general data tools before account integrations and specialized media tools. Do not merge the whole stack merely to install one directory. No PRs were created.
+Each tool directory is independent and was added in its own commit, data tools before account integrations.
 
 Native web fetch/search were removed from the active stack. The earlier implementations are retained only on optional branches; they are not ancestors of the active stack. Native file editing, code execution, memory and scheduling remain invokr-owned. Inline text patch/regex and arithmetic tools remain because they accept bounded argument data and grant no workspace/code-authoring authority.
 
