@@ -1,0 +1,67 @@
+{
+  "name": "hammer_spotify_playlists",
+  "description": "List your Spotify playlists or read playlist items.",
+  "namespace": "hammer",
+  "example": "{\"name\": \"hammer_spotify_playlists\", \"arguments\": {\"action\": \"list\"}}",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "action": {
+        "type": "string",
+        "description": "List your playlists or read items.",
+        "maxLength": 32000,
+        "enum": [
+          "list",
+          "items"
+        ]
+      },
+      "playlist_id": {
+        "type": "string",
+        "description": "Required for items.",
+        "maxLength": 128,
+        "default": ""
+      },
+      "limit": {
+        "type": "integer",
+        "description": "Page size.",
+        "default": 5,
+        "minimum": 1,
+        "maximum": 50
+      },
+      "offset": {
+        "type": "integer",
+        "description": "Page offset.",
+        "default": 0,
+        "minimum": 0,
+        "maximum": 10000
+      }
+    },
+    "required": [
+      "action"
+    ],
+    "additionalProperties": false
+  },
+  "policy": {
+    "tiers": [
+      "code_execution"
+    ],
+    "approval": "ask_once"
+  },
+  "capabilities": {
+    "reads_workspace": false,
+    "writes_workspace": false,
+    "network": true,
+    "executes_code": true
+  },
+  "daemon": false,
+  "limits": {
+    "timeout_seconds": 15,
+    "memory_mb": 128,
+    "output_kb": 32
+  },
+  "network": {
+    "allow_hosts": [
+      "api.spotify.com"
+    ]
+  }
+}
