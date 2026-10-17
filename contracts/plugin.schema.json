@@ -35,11 +35,25 @@
       "const": false
     },
     "policy": {
-      "const": {
-        "tiers": [
-          "code_execution"
-        ],
-        "approval": "ask"
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tiers",
+        "approval"
+      ],
+      "properties": {
+        "tiers": {
+          "const": [
+            "code_execution"
+          ]
+        },
+        "approval": {
+          "enum": [
+            "ask",
+            "ask_once",
+            "always_ask"
+          ]
+        }
       }
     },
     "capabilities": {

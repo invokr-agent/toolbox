@@ -6,6 +6,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"slices"
 	"strings"
 	"testing"
 	"time"
@@ -50,7 +51,7 @@ func TestHammerExternalContracts(t *testing.T) {
 			if p.Metadata.Capabilities.Network {
 				// Network producers are tested with local mocks by their Python suite.
 				// Do not execute an example that could contact a live provider here.
-				if len(p.allowHosts) == 0 || p.Metadata.Policy.Approval != "ask" {
+				if len(p.allowHosts) == 0 || !slices.Contains([]string{"ask_once", "always_ask"}, p.Metadata.Policy.Approval) {
 					t.Fatal("network manifest lacks allowlist/approval")
 				}
 				return
