@@ -54,7 +54,7 @@ drift, invalid schemas/examples, dependencies, cross-tool imports, symlinks and
 missing/empty tests. No network installation occurs in these checks.
 
 Invokr runs used a disposable `git archive` snapshot, not the user's checkout.
-The external tests use Go's file overlay; no invokr source is changed. The kit is published as stacked branches at https://github.com/invokr-ai/toolbox; no PR or merge. The model server at 127.0.0.1:8080, benchmark lock and
+The external tests use Go's file overlay; no invokr source is changed. The kit is published as stacked branches at https://github.com/invokr-agent/toolbox; no PR or merge. The model server at 127.0.0.1:8080, benchmark lock and
 the two protected live-run cache directories were not used or modified.
 
 Limits: namespace support is required; direct Python tests alone do not prove
